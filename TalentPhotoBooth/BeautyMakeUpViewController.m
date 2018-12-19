@@ -44,7 +44,7 @@
     NSDictionary *dic_ = @{@"app_id": [NSNumber numberWithInt:2110462408],
                            @"time_stamp":[NSNumber numberWithInteger:[self currentTimeStr]],
                            @"nonce_str":[self return16LetterAndNumber],
-                           @"cosmetic":[NSNumber numberWithInteger:1],
+                           @"cosmetic":[NSNumber numberWithInt:1],
                            @"image":@"...",
                            //@"sign":@""
                           };
@@ -146,7 +146,7 @@
     
 }
 
--(NSString *)getReqSign:(NSDictionary *)dic {
+-(NSString *)getReqSign:(NSMutableDictionary *)dic {
     NSString *app_key = @"&app_key=JQLepkbvA5IlFfxA";
     
     NSArray *keyArray = [dic allKeys];
@@ -211,7 +211,7 @@
     }
     
     // 2.初始化
-    _pickerScollView = [[MLPickerScrollView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 130, SCREEN_WIDTH, kItemH)];
+    _pickerScollView = [[MLPickerScrollView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 120, SCREEN_WIDTH, kItemH)];
     //_pickerScollView.backgroundColor = [UIColor lightGrayColor];
     _pickerScollView.itemWidth = _pickerScollView.frame.size.width / 5; //刚好显示5个的宽度
     _pickerScollView.itemHeight = kItemH;

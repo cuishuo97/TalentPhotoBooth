@@ -15,6 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) IBOutlet UITableView *AboutTableView;
 @property (weak, nonatomic) IBOutlet UILabel *lblVersionInfo;
 
+@property (nonatomic, assign) NSString *iosversion;
+@property (nonatomic, assign) NSString *version;
+@property (nonatomic, assign) NSString *device;
+
 @end
 
 NS_ASSUME_NONNULL_END

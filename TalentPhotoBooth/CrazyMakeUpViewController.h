@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CrazyMakeUpViewController : UIViewController
 
+@property (nonatomic,assign)NSInteger discount;
+
 @end
 
 NS_ASSUME_NONNULL_END

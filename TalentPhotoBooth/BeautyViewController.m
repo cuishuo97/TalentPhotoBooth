@@ -11,6 +11,9 @@
 #import "AFNetworking/AFNetworking.h"
 #import "SVProgressHUD/SVProgressHUD.h"
 #import "ToolKit.h"
+//#import "MBProgressHUD/MBProgressHUD.h"
+
+
 
 @interface BeautyViewController ()
 
@@ -18,11 +21,23 @@
 
 @implementation BeautyViewController
 - (IBAction)pressTest:(id)sender {
-    [self presentViewController:[shareViewController showShareVC:self.imageView.image] animated:YES completion:nil];
+    if (self.imageView.image == NULL) {
+        [SVProgressHUD showErrorWithStatus:@"请先"];
+    }
+    else {
+            [self presentViewController:[shareViewController showShareVC:self.imageView.image] animated:YES completion:nil];
+    }
+
 }
 
-
 - (IBAction)pressSelectPhoto:(id)sender {
+    
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+   
     UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:@"请选择照片来源" preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *selectAlbum = [UIAlertAction actionWithTitle:@"从手机相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         // 判断是否可以打开相册/相机/相簿
@@ -47,7 +62,7 @@
     }];
     
     UIAlertAction *selectCancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        //[self.navigationController popViewControllerAnimated:YES];
+        [self.navigationController popViewControllerAnimated:YES];
         nil;
     }];
     
@@ -56,12 +71,8 @@
     [actionSheet addAction:selectCancel];
     
     [self presentViewController:actionSheet animated:YES completion:nil];
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-   
+    
+    
 }
 
 /*
@@ -152,7 +163,8 @@
         return;
     }
     
-    [SVProgressHUD showWithStatus:@"正在合成"];
+    [ProgressHUD showLoadingMessage:@"正在合成" view:self.navigationController.view];
+    //[MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     
     NSData *imageData;
     imageData = [photoCompress resetSizeOfImageData:self.imageView.image maxSize:300];
@@ -166,10 +178,11 @@
                           @"whitening":[NSNumber numberWithInt:[self.lblWhiteningRate.text intValue]],
                           @"smoothing":[NSNumber numberWithInt:[self.lblSmoothingRate.text intValue]]
                           };
-    
+        
     AFHTTPSessionManager *http = [AFHTTPSessionManager manager];
     [http POST:@"https://api-cn.faceplusplus.com/facepp/beta/beautify" parameters:dic headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        [SVProgressHUD dismiss];
+        //[SVProgressHUD dismiss];
+        [ProgressHUD hideHUD:self.navigationController.view];
         [feedBackGenerator feedBack:@"SUCCESS"];
         NSDictionary *dic = responseObject;
         NSDictionary *result = dic[@"result"];
@@ -179,8 +192,10 @@
         UIImage *temp = [self stringToImage:str_result];
         self.imageView.image = temp;
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [ProgressHUD hideHUD:self.navigationController.view];
         NSLog(@"失败");
         NSLog(@"%@",[error localizedDescription]);
+        [SVProgressHUD showErrorWithStatus:[@"合成失败\n" stringByAppendingString:[error localizedDescription]]];
     }];
 }
 

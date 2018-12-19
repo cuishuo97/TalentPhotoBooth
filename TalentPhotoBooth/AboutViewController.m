@@ -9,6 +9,7 @@
 #import "AboutViewController.h"
 #import <SafariServices/SafariServices.h>
 #import <MessageUI/MessageUI.h>
+#import "sys/utsname.h"
 
 
 @interface AboutViewController ()
@@ -23,8 +24,20 @@
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
     //CFShow(infoDictionary);
     
-    NSString *version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
-    _lblVersionInfo.text = version;
+    struct utsname systemInfo;
+    uname(&systemInfo);
+    
+    _device = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
+    _iosversion = [UIDevice currentDevice].systemVersion;
+    _version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+    
+    _lblVersionInfo.text = _version;
+    
+    //_version = [@"TalentPhotoBooth:" stringByAppendingString:_version];
+    
+    
+    
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -125,7 +138,7 @@
         switch (indexPath.row) {
             case 0: {
                 NSLog(@"官方网站");
-                NSURL *url = [NSURL URLWithString:@"https://cuishuo.net"];
+                NSURL *url = [NSURL URLWithString:@"https://www.cuishuo.net/2018/12/19/TalentPhotoBooth/"];
                 SFSafariViewController *safariVc = [[SFSafariViewController alloc] initWithURL:url];
                 
                 [self presentViewController:safariVc animated:YES completion:nil];
@@ -155,7 +168,13 @@
                     /**
                      *  设置邮件的正文内容
                      */
-                    NSString *emailContent = @"请在此处输入您的反馈意见";
+                    NSString * temp;
+                    temp = [_device stringByAppendingString:@" "];
+                    temp = [temp stringByAppendingString:_iosversion];
+                    temp = [temp stringByAppendingString:@" "];
+                    temp = [temp stringByAppendingString:_version];
+                    NSString *prompt = @"请在此处输入您的反馈意见\n\n";
+                    NSString *emailContent = [prompt stringByAppendingString:temp];
                     // 是否为HTML格式
                     [mailCompose setMessageBody:emailContent isHTML:NO];
                     // 如使用HTML格式，则为以下代码

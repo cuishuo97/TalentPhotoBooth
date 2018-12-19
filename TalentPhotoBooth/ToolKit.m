@@ -8,6 +8,7 @@
 
 //#import <Foundation/Foundation.h>
 #import "ToolKit.h"
+#import "MBProgressHUD/MBProgressHUD.h"
 
 //Taptic Engine 触感反馈封装
 @implementation feedBackGenerator
@@ -182,6 +183,24 @@
 //    [activityViewController setCompletionWithItemsHandler:^(NSString * __nullable activityType, BOOL completed, NSArray * __nullable returnedItems, NSError * __nullable activityError){
 //        NSLog(@"act type %@",activityType);
 //    }];
+}
+
+@end
+
+@implementation ProgressHUD
+    static MBProgressHUD *hud;
+
++ (void) showMessage {
+    NSLog(@"ss");
+}
+
++ (void) showLoadingMessage: (NSString *) message view:(UIView *) view {
+    hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    hud.label.text = message;
+}
+
++ (void) hideHUD: (UIView *) view{
+    [MBProgressHUD hideHUDForView:view animated:YES];
 }
 
 @end

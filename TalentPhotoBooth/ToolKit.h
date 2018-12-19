@@ -8,6 +8,8 @@
 
 //#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+//#import "MBProgressHUD/MBProgressHUD.h"
+
 
 //Taptic Engine 触感反馈封装
 @interface feedBackGenerator : NSObject
@@ -30,6 +32,20 @@
 @interface shareViewController : NSObject
 
 + (UIActivityViewController *) showShareVC : (UIImage *) image;
+
+@end
+
+@interface ProgressHUD : NSObject
+
++ (void) showMessage: (NSString *) message;
+
++ (void) showLoadingMessage: (NSString *) message view :(UIView *) view;
+
++ (void) hideHUD: (UIView *) view;
+
+
+
+
 
 @end
 

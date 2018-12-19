@@ -8,6 +8,7 @@
 
 #import <SafariServices/SafariServices.h>
 #import "ViewController.h"
+#import "BeautyViewController.h"
 #import "ToolKit.h"
 
 
@@ -27,6 +28,11 @@
 //美颜触觉反馈
 - (IBAction)pressBeauty:(id)sender {
     [feedBackGenerator feedBack:@"MEDIUM"];
+
+//    BeautyViewController *beautyVC = [self.storyboard instantiateViewControllerWithIdentifier:@"id"];
+//    [self presentViewController:beautyVC animated:YES completion:nil];
+
+    
     
 }
 
@@ -35,7 +41,12 @@
     [feedBackGenerator feedBack:@"MEDIUM"];
 }
 
+//变妆触觉反馈
 - (IBAction)pressCrazyMakeUp:(id)sender {
+    [feedBackGenerator feedBack:@"MEDIUM"];
+}
+//大头贴触觉反馈
+- (IBAction)pressPhotoSticker:(id)sender {
     [feedBackGenerator feedBack:@"MEDIUM"];
 }
 

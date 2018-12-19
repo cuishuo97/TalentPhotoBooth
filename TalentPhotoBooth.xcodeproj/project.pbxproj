@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		F414964821BBC4040056C6E7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F414964721BBC4040056C6E7 /* AppDelegate.m */; };
 		F414964B21BBC4040056C6E7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F414964A21BBC4040056C6E7 /* ViewController.m */; };
-		F414964E21BBC4040056C6E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F414964C21BBC4040056C6E7 /* Main.storyboard */; };
 		F414965021BBC4060056C6E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F414964F21BBC4060056C6E7 /* Assets.xcassets */; };
 		F414965321BBC4060056C6E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F414965121BBC4060056C6E7 /* LaunchScreen.storyboard */; };
 		F414965621BBC4060056C6E7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F414965521BBC4060056C6E7 /* main.m */; };
@@ -35,6 +34,30 @@
 		F4A5D48121BFFD0E00734D3B /* beauty_shortcuticon.png in Resources */ = {isa = PBXBuildFile; fileRef = F4A5D48021BFFD0D00734D3B /* beauty_shortcuticon.png */; };
 		F4A5D48321BFFE7E00734D3B /* makeup_shortcuticon.png in Resources */ = {isa = PBXBuildFile; fileRef = F4A5D48221BFFE7D00734D3B /* makeup_shortcuticon.png */; };
 		F4A5D48521BFFE8700734D3B /* cosplay_shortcuticon.png in Resources */ = {isa = PBXBuildFile; fileRef = F4A5D48421BFFE8700734D3B /* cosplay_shortcuticon.png */; };
+		F4ADA18A21CA00E700A5D2EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4ADA18921CA00E700A5D2EC /* Main.storyboard */; };
+		F4ADA19221CA062100A5D2EC /* edit_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4ADA18B21CA062000A5D2EC /* edit_normal@2x.png */; };
+		F4ADA19321CA062100A5D2EC /* makeup_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4ADA18C21CA062000A5D2EC /* makeup_normal@2x.png */; };
+		F4ADA19421CA062100A5D2EC /* collage_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4ADA18D21CA062000A5D2EC /* collage_normal@2x.png */; };
+		F4ADA19521CA062100A5D2EC /* datoutie_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4ADA18E21CA062000A5D2EC /* datoutie_normal@2x.png */; };
+		F4ADA19621CA062100A5D2EC /* cutout_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4ADA18F21CA062000A5D2EC /* cutout_normal@2x.png */; };
+		F4ADA19721CA062100A5D2EC /* cartoon_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4ADA19021CA062000A5D2EC /* cartoon_normal@2x.png */; };
+		F4ADA19821CA062100A5D2EC /* video_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4ADA19121CA062000A5D2EC /* video_normal@2x.png */; };
+		F4ADA1A521CA198700A5D2EC /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F4ADA1A321CA198700A5D2EC /* MBProgressHUD.m */; };
+		F4ADA1B621CA31EC00A5D2EC /* cosplay_wumeiniang.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4ADA1A721CA31EB00A5D2EC /* cosplay_wumeiniang.jpg */; };
+		F4ADA1B721CA31EC00A5D2EC /* cosplay_xingguangxunyicao.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4ADA1A821CA31EB00A5D2EC /* cosplay_xingguangxunyicao.jpg */; };
+		F4ADA1B821CA31EC00A5D2EC /* cosplay_aiguo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4ADA1A921CA31EB00A5D2EC /* cosplay_aiguo.jpg */; };
+		F4ADA1B921CA31EC00A5D2EC /* cosplay_aiji.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4ADA1AA21CA31EB00A5D2EC /* cosplay_aiji.jpg */; };
+		F4ADA1BA21CA31EC00A5D2EC /* cosplay_emo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4ADA1AB21CA31EB00A5D2EC /* cosplay_emo.jpg */; };
+		F4ADA1BB21CA31EC00A5D2EC /* cosplay_baxituzhu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4ADA1AC21CA31EB00A5D2EC /* cosplay_baxituzhu.jpg */; };
+		F4ADA1BC21CA31EC00A5D2EC /* cosplay_paopao.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4ADA1AD21CA31EB00A5D2EC /* cosplay_paopao.jpg */; };
+		F4ADA1BD21CA31EC00A5D2EC /* cosplay_daomadan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4ADA1AE21CA31EB00A5D2EC /* cosplay_daomadan.jpg */; };
+		F4ADA1BE21CA31EC00A5D2EC /* cosplay_huoyingmingren.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4ADA1AF21CA31EB00A5D2EC /* cosplay_huoyingmingren.jpg */; };
+		F4ADA1BF21CA31EC00A5D2EC /* cosplay_meiyangyang.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4ADA1B021CA31EB00A5D2EC /* cosplay_meiyangyang.jpg */; };
+		F4ADA1C021CA31EC00A5D2EC /* cosplay_jiangshi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4ADA1B121CA31EB00A5D2EC /* cosplay_jiangshi.jpg */; };
+		F4ADA1C121CA31EC00A5D2EC /* cosplay_huaqiangu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4ADA1B221CA31EB00A5D2EC /* cosplay_huaqiangu.jpg */; };
+		F4ADA1C221CA31EC00A5D2EC /* cosplay_xiaohuzi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4ADA1B321CA31EB00A5D2EC /* cosplay_xiaohuzi.jpg */; };
+		F4ADA1C321CA31EC00A5D2EC /* cosplay_huiguniang.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4ADA1B421CA31EC00A5D2EC /* cosplay_huiguniang.jpg */; };
+		F4ADA1C421CA31EC00A5D2EC /* cosplay_taohua.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4ADA1B521CA31EC00A5D2EC /* cosplay_taohua.jpg */; };
 		F4B052F921C5425400EB8AF4 /* JXButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B052F221C5425300EB8AF4 /* JXButton.m */; };
 		F4B052FA21C5425400EB8AF4 /* MLPickerScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B052F321C5425300EB8AF4 /* MLPickerScrollView.m */; };
 		F4B052FB21C5425400EB8AF4 /* MLPickerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B052F621C5425300EB8AF4 /* MLPickerItem.m */; };
@@ -55,7 +78,6 @@
 		F4B0536421C5584400EB8AF4 /* makeup_babifen.png in Resources */ = {isa = PBXBuildFile; fileRef = F4B0535B21C5584400EB8AF4 /* makeup_babifen.png */; };
 		F4B0536721C640F700EB8AF4 /* CrazyMakeUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B0536621C640F700EB8AF4 /* CrazyMakeUpViewController.m */; };
 		F4B0536A21C641B700EB8AF4 /* PhotoStickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B0536921C641B700EB8AF4 /* PhotoStickerViewController.m */; };
-		F4B0536C21C7B9DB00EB8AF4 /* datoutie_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4B0536B21C7B9DB00EB8AF4 /* datoutie_normal@2x.png */; };
 		F4CB991A21C3686300250297 /* ToolKit.m in Sources */ = {isa = PBXBuildFile; fileRef = F4CB991921C3686300250297 /* ToolKit.m */; };
 		F4CB991D21C3841000250297 /* datoutie_normal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4CB991B21C3841000250297 /* datoutie_normal@3x.png */; };
 		F4CB991E21C3841000250297 /* edit_normal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4CB991C21C3841000250297 /* edit_normal@3x.png */; };
@@ -63,6 +85,21 @@
 		F4CB992221C3841900250297 /* cartoon_normal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4CB992021C3841900250297 /* cartoon_normal@3x.png */; };
 		F4CB992421C384A000250297 /* makeup_normal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4CB992321C384A000250297 /* makeup_normal@3x.png */; };
 		F4CB992621C384A400250297 /* cutout_normal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4CB992521C384A400250297 /* cutout_normal@3x.png */; };
+		F4CF6E3221CA65E10000393B /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2321CA65E00000393B /* 1.png */; };
+		F4CF6E3321CA65E10000393B /* 7.png in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2421CA65E10000393B /* 7.png */; };
+		F4CF6E3421CA65E10000393B /* 8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2521CA65E10000393B /* 8.jpg */; };
+		F4CF6E3521CA65E10000393B /* 10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2621CA65E10000393B /* 10.jpg */; };
+		F4CF6E3621CA65E10000393B /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2721CA65E10000393B /* 6.png */; };
+		F4CF6E3721CA65E10000393B /* 12.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2821CA65E10000393B /* 12.jpg */; };
+		F4CF6E3821CA65E10000393B /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2921CA65E10000393B /* 3.jpg */; };
+		F4CF6E3921CA65E10000393B /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2A21CA65E10000393B /* 9.jpg */; };
+		F4CF6E3A21CA65E10000393B /* 14.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2B21CA65E10000393B /* 14.jpg */; };
+		F4CF6E3B21CA65E10000393B /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2C21CA65E10000393B /* 2.png */; };
+		F4CF6E3C21CA65E10000393B /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2D21CA65E10000393B /* 5.png */; };
+		F4CF6E3D21CA65E10000393B /* 15.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2E21CA65E10000393B /* 15.jpg */; };
+		F4CF6E3E21CA65E10000393B /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2F21CA65E10000393B /* 4.png */; };
+		F4CF6E3F21CA65E10000393B /* 11.png in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E3021CA65E10000393B /* 11.png */; };
+		F4CF6E4021CA65E10000393B /* 13.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E3121CA65E10000393B /* 13.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,7 +108,6 @@
 		F414964721BBC4040056C6E7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F414964921BBC4040056C6E7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		F414964A21BBC4040056C6E7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		F414964D21BBC4040056C6E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F414964F21BBC4060056C6E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F414965221BBC4060056C6E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F414965421BBC4060056C6E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -115,6 +151,31 @@
 		F4A5D48021BFFD0D00734D3B /* beauty_shortcuticon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beauty_shortcuticon.png; sourceTree = "<group>"; };
 		F4A5D48221BFFE7D00734D3B /* makeup_shortcuticon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = makeup_shortcuticon.png; sourceTree = "<group>"; };
 		F4A5D48421BFFE8700734D3B /* cosplay_shortcuticon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cosplay_shortcuticon.png; sourceTree = "<group>"; };
+		F4ADA18921CA00E700A5D2EC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		F4ADA18B21CA062000A5D2EC /* edit_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit_normal@2x.png"; sourceTree = "<group>"; };
+		F4ADA18C21CA062000A5D2EC /* makeup_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "makeup_normal@2x.png"; sourceTree = "<group>"; };
+		F4ADA18D21CA062000A5D2EC /* collage_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "collage_normal@2x.png"; sourceTree = "<group>"; };
+		F4ADA18E21CA062000A5D2EC /* datoutie_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "datoutie_normal@2x.png"; path = "../../../../../../Desktop/2x/datoutie_normal@2x.png"; sourceTree = "<group>"; };
+		F4ADA18F21CA062000A5D2EC /* cutout_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cutout_normal@2x.png"; sourceTree = "<group>"; };
+		F4ADA19021CA062000A5D2EC /* cartoon_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cartoon_normal@2x.png"; sourceTree = "<group>"; };
+		F4ADA19121CA062000A5D2EC /* video_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "video_normal@2x.png"; sourceTree = "<group>"; };
+		F4ADA1A321CA198700A5D2EC /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		F4ADA1A421CA198700A5D2EC /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		F4ADA1A721CA31EB00A5D2EC /* cosplay_wumeiniang.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cosplay_wumeiniang.jpg; sourceTree = "<group>"; };
+		F4ADA1A821CA31EB00A5D2EC /* cosplay_xingguangxunyicao.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cosplay_xingguangxunyicao.jpg; sourceTree = "<group>"; };
+		F4ADA1A921CA31EB00A5D2EC /* cosplay_aiguo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cosplay_aiguo.jpg; sourceTree = "<group>"; };
+		F4ADA1AA21CA31EB00A5D2EC /* cosplay_aiji.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cosplay_aiji.jpg; sourceTree = "<group>"; };
+		F4ADA1AB21CA31EB00A5D2EC /* cosplay_emo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cosplay_emo.jpg; sourceTree = "<group>"; };
+		F4ADA1AC21CA31EB00A5D2EC /* cosplay_baxituzhu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cosplay_baxituzhu.jpg; sourceTree = "<group>"; };
+		F4ADA1AD21CA31EB00A5D2EC /* cosplay_paopao.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cosplay_paopao.jpg; sourceTree = "<group>"; };
+		F4ADA1AE21CA31EB00A5D2EC /* cosplay_daomadan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cosplay_daomadan.jpg; sourceTree = "<group>"; };
+		F4ADA1AF21CA31EB00A5D2EC /* cosplay_huoyingmingren.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cosplay_huoyingmingren.jpg; sourceTree = "<group>"; };
+		F4ADA1B021CA31EB00A5D2EC /* cosplay_meiyangyang.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cosplay_meiyangyang.jpg; sourceTree = "<group>"; };
+		F4ADA1B121CA31EB00A5D2EC /* cosplay_jiangshi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cosplay_jiangshi.jpg; sourceTree = "<group>"; };
+		F4ADA1B221CA31EB00A5D2EC /* cosplay_huaqiangu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cosplay_huaqiangu.jpg; sourceTree = "<group>"; };
+		F4ADA1B321CA31EB00A5D2EC /* cosplay_xiaohuzi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cosplay_xiaohuzi.jpg; sourceTree = "<group>"; };
+		F4ADA1B421CA31EC00A5D2EC /* cosplay_huiguniang.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cosplay_huiguniang.jpg; sourceTree = "<group>"; };
+		F4ADA1B521CA31EC00A5D2EC /* cosplay_taohua.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cosplay_taohua.jpg; sourceTree = "<group>"; };
 		F4B052EF21C5425300EB8AF4 /* JXButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXButton.h; sourceTree = "<group>"; };
 		F4B052F021C5425300EB8AF4 /* MLDemoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLDemoModel.h; sourceTree = "<group>"; };
 		F4B052F121C5425300EB8AF4 /* MLPickerScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPickerScrollView.h; sourceTree = "<group>"; };
@@ -142,7 +203,6 @@
 		F4B0536621C640F700EB8AF4 /* CrazyMakeUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CrazyMakeUpViewController.m; sourceTree = "<group>"; };
 		F4B0536821C641B700EB8AF4 /* PhotoStickerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PhotoStickerViewController.h; path = TalentPhotoBooth/PhotoStickerViewController.h; sourceTree = SOURCE_ROOT; };
 		F4B0536921C641B700EB8AF4 /* PhotoStickerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PhotoStickerViewController.m; path = TalentPhotoBooth/PhotoStickerViewController.m; sourceTree = SOURCE_ROOT; };
-		F4B0536B21C7B9DB00EB8AF4 /* datoutie_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "datoutie_normal@2x.png"; sourceTree = "<group>"; };
 		F4CB991921C3686300250297 /* ToolKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolKit.m; sourceTree = "<group>"; };
 		F4CB991B21C3841000250297 /* datoutie_normal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "datoutie_normal@3x.png"; sourceTree = "<group>"; };
 		F4CB991C21C3841000250297 /* edit_normal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit_normal@3x.png"; sourceTree = "<group>"; };
@@ -150,6 +210,22 @@
 		F4CB992021C3841900250297 /* cartoon_normal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cartoon_normal@3x.png"; sourceTree = "<group>"; };
 		F4CB992321C384A000250297 /* makeup_normal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "makeup_normal@3x.png"; sourceTree = "<group>"; };
 		F4CB992521C384A400250297 /* cutout_normal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cutout_normal@3x.png"; sourceTree = "<group>"; };
+		F4CF6E2121CA51FB0000393B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		F4CF6E2321CA65E00000393B /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		F4CF6E2421CA65E10000393B /* 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 7.png; sourceTree = "<group>"; };
+		F4CF6E2521CA65E10000393B /* 8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 8.jpg; sourceTree = "<group>"; };
+		F4CF6E2621CA65E10000393B /* 10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 10.jpg; sourceTree = "<group>"; };
+		F4CF6E2721CA65E10000393B /* 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6.png; sourceTree = "<group>"; };
+		F4CF6E2821CA65E10000393B /* 12.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 12.jpg; sourceTree = "<group>"; };
+		F4CF6E2921CA65E10000393B /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
+		F4CF6E2A21CA65E10000393B /* 9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 9.jpg; sourceTree = "<group>"; };
+		F4CF6E2B21CA65E10000393B /* 14.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 14.jpg; sourceTree = "<group>"; };
+		F4CF6E2C21CA65E10000393B /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		F4CF6E2D21CA65E10000393B /* 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5.png; sourceTree = "<group>"; };
+		F4CF6E2E21CA65E10000393B /* 15.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 15.jpg; sourceTree = "<group>"; };
+		F4CF6E2F21CA65E10000393B /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
+		F4CF6E3021CA65E10000393B /* 11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 11.png; sourceTree = "<group>"; };
+		F4CF6E3121CA65E10000393B /* 13.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 13.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +262,7 @@
 		F414964521BBC4040056C6E7 /* TalentPhotoBooth */ = {
 			isa = PBXGroup;
 			children = (
+				F4ADA1A221CA198700A5D2EC /* MBProgressHUD */,
 				F4B052EE21C5424200EB8AF4 /* ScrollPicker */,
 				F4B0529021C5394D00EB8AF4 /* Resources */,
 				F414967921BBE65D0056C6E7 /* AFNetworking */,
@@ -200,7 +277,6 @@
 				F414964721BBC4040056C6E7 /* AppDelegate.m */,
 				F414964921BBC4040056C6E7 /* ViewController.h */,
 				F414964A21BBC4040056C6E7 /* ViewController.m */,
-				F414964C21BBC4040056C6E7 /* Main.storyboard */,
 				F414969E21BC1A1C0056C6E7 /* BeautyMakeUpViewController.h */,
 				F414969F21BC1A1C0056C6E7 /* BeautyMakeUpViewController.m */,
 				F4B0536521C640F700EB8AF4 /* CrazyMakeUpViewController.h */,
@@ -208,6 +284,7 @@
 				F414967421BBE4FE0056C6E7 /* BeautyViewController.h */,
 				F414967521BBE4FE0056C6E7 /* BeautyViewController.m */,
 				F414964F21BBC4060056C6E7 /* Assets.xcassets */,
+				F4ADA18921CA00E700A5D2EC /* Main.storyboard */,
 				F414965121BBC4060056C6E7 /* LaunchScreen.storyboard */,
 				F414965421BBC4060056C6E7 /* Info.plist */,
 				F414965521BBC4060056C6E7 /* main.m */,
@@ -264,6 +341,37 @@
 			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
+		F4ADA1A221CA198700A5D2EC /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				F4ADA1A321CA198700A5D2EC /* MBProgressHUD.m */,
+				F4ADA1A421CA198700A5D2EC /* MBProgressHUD.h */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		F4ADA1A621CA31D100A5D2EC /* Cosplay */ = {
+			isa = PBXGroup;
+			children = (
+				F4ADA1AA21CA31EB00A5D2EC /* cosplay_aiji.jpg */,
+				F4ADA1AC21CA31EB00A5D2EC /* cosplay_baxituzhu.jpg */,
+				F4ADA1B421CA31EC00A5D2EC /* cosplay_huiguniang.jpg */,
+				F4ADA1AB21CA31EB00A5D2EC /* cosplay_emo.jpg */,
+				F4ADA1A721CA31EB00A5D2EC /* cosplay_wumeiniang.jpg */,
+				F4ADA1A821CA31EB00A5D2EC /* cosplay_xingguangxunyicao.jpg */,
+				F4ADA1B221CA31EB00A5D2EC /* cosplay_huaqiangu.jpg */,
+				F4ADA1B121CA31EB00A5D2EC /* cosplay_jiangshi.jpg */,
+				F4ADA1A921CA31EB00A5D2EC /* cosplay_aiguo.jpg */,
+				F4ADA1B321CA31EB00A5D2EC /* cosplay_xiaohuzi.jpg */,
+				F4ADA1B021CA31EB00A5D2EC /* cosplay_meiyangyang.jpg */,
+				F4ADA1AF21CA31EB00A5D2EC /* cosplay_huoyingmingren.jpg */,
+				F4ADA1AE21CA31EB00A5D2EC /* cosplay_daomadan.jpg */,
+				F4ADA1AD21CA31EB00A5D2EC /* cosplay_paopao.jpg */,
+				F4ADA1B521CA31EC00A5D2EC /* cosplay_taohua.jpg */,
+			);
+			path = Cosplay;
+			sourceTree = "<group>";
+		};
 		F4B0529021C5394D00EB8AF4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -313,9 +421,15 @@
 		F4B0534721C550BC00EB8AF4 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				F4ADA19021CA062000A5D2EC /* cartoon_normal@2x.png */,
+				F4ADA18D21CA062000A5D2EC /* collage_normal@2x.png */,
+				F4ADA18F21CA062000A5D2EC /* cutout_normal@2x.png */,
+				F4ADA18E21CA062000A5D2EC /* datoutie_normal@2x.png */,
+				F4ADA18B21CA062000A5D2EC /* edit_normal@2x.png */,
+				F4ADA18C21CA062000A5D2EC /* makeup_normal@2x.png */,
+				F4ADA19121CA062000A5D2EC /* video_normal@2x.png */,
 				F4A5D47621BEBFD800734D3B /* crazy_makeup_normal@3x.png */,
 				F4CB991B21C3841000250297 /* datoutie_normal@3x.png */,
-				F4B0536B21C7B9DB00EB8AF4 /* datoutie_normal@2x.png */,
 				F4CB991C21C3841000250297 /* edit_normal@3x.png */,
 				F4CB992021C3841900250297 /* cartoon_normal@3x.png */,
 				F4CB992521C384A400250297 /* cutout_normal@3x.png */,
@@ -339,6 +453,8 @@
 		F4B0535121C5523100EB8AF4 /* ScrollView */ = {
 			isa = PBXGroup;
 			children = (
+				F4CF6E2221CA65AA0000393B /* PhotoSticker */,
+				F4ADA1A621CA31D100A5D2EC /* Cosplay */,
 				F4B0535221C5523E00EB8AF4 /* BeautyMakeUp */,
 			);
 			path = ScrollView;
@@ -358,6 +474,28 @@
 				F4B0535921C5584400EB8AF4 /* makeup_ziran.png */,
 			);
 			path = BeautyMakeUp;
+			sourceTree = "<group>";
+		};
+		F4CF6E2221CA65AA0000393B /* PhotoSticker */ = {
+			isa = PBXGroup;
+			children = (
+				F4CF6E2321CA65E00000393B /* 1.png */,
+				F4CF6E2C21CA65E10000393B /* 2.png */,
+				F4CF6E2921CA65E10000393B /* 3.jpg */,
+				F4CF6E2F21CA65E10000393B /* 4.png */,
+				F4CF6E2D21CA65E10000393B /* 5.png */,
+				F4CF6E2721CA65E10000393B /* 6.png */,
+				F4CF6E2421CA65E10000393B /* 7.png */,
+				F4CF6E2521CA65E10000393B /* 8.jpg */,
+				F4CF6E2A21CA65E10000393B /* 9.jpg */,
+				F4CF6E2621CA65E10000393B /* 10.jpg */,
+				F4CF6E3021CA65E10000393B /* 11.png */,
+				F4CF6E2821CA65E10000393B /* 12.jpg */,
+				F4CF6E3121CA65E10000393B /* 13.jpg */,
+				F4CF6E2B21CA65E10000393B /* 14.jpg */,
+				F4CF6E2E21CA65E10000393B /* 15.jpg */,
+			);
+			path = PhotoSticker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -417,34 +555,70 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4CF6E4021CA65E10000393B /* 13.jpg in Resources */,
 				F4B0534A21C5512B00EB8AF4 /* ae_share@2x.png in Resources */,
 				F4B0536221C5584400EB8AF4 /* makeup_ziran.png in Resources */,
+				F4ADA1C121CA31EC00A5D2EC /* cosplay_huaqiangu.jpg in Resources */,
+				F4ADA19321CA062100A5D2EC /* makeup_normal@2x.png in Resources */,
+				F4ADA1BD21CA31EC00A5D2EC /* cosplay_daomadan.jpg in Resources */,
+				F4ADA19621CA062100A5D2EC /* cutout_normal@2x.png in Resources */,
+				F4CF6E3A21CA65E10000393B /* 14.jpg in Resources */,
 				F4A5D48521BFFE8700734D3B /* cosplay_shortcuticon.png in Resources */,
 				F414965321BBC4060056C6E7 /* LaunchScreen.storyboard in Resources */,
+				F4CF6E3D21CA65E10000393B /* 15.jpg in Resources */,
 				F4B0536021C5584400EB8AF4 /* makeup_yuansuhong.png in Resources */,
+				F4ADA1BE21CA31EC00A5D2EC /* cosplay_huoyingmingren.jpg in Resources */,
+				F4ADA19721CA062100A5D2EC /* cartoon_normal@2x.png in Resources */,
+				F4ADA1BA21CA31EC00A5D2EC /* cosplay_emo.jpg in Resources */,
 				F4A5D48321BFFE7E00734D3B /* makeup_shortcuticon.png in Resources */,
-				F4B0536C21C7B9DB00EB8AF4 /* datoutie_normal@2x.png in Resources */,
 				F4A5D47721BEBFD800734D3B /* crazy_makeup_normal@3x.png in Resources */,
+				F4CF6E3421CA65E10000393B /* 8.jpg in Resources */,
 				F4CB992121C3841900250297 /* video_normal@3x.png in Resources */,
+				F4CF6E3721CA65E10000393B /* 12.jpg in Resources */,
 				F4B0535C21C5584400EB8AF4 /* makeup_shanliang.png in Resources */,
 				F4CB992221C3841900250297 /* cartoon_normal@3x.png in Resources */,
+				F4ADA1B721CA31EC00A5D2EC /* cosplay_xingguangxunyicao.jpg in Resources */,
+				F4CF6E3221CA65E10000393B /* 1.png in Resources */,
 				F414965021BBC4060056C6E7 /* Assets.xcassets in Resources */,
+				F4ADA18A21CA00E700A5D2EC /* Main.storyboard in Resources */,
 				F4B0536121C5584400EB8AF4 /* makeup_qingtou.png in Resources */,
 				F4CB992621C384A400250297 /* cutout_normal@3x.png in Resources */,
+				F4CF6E3F21CA65E10000393B /* 11.png in Resources */,
+				F4ADA1C221CA31EC00A5D2EC /* cosplay_xiaohuzi.jpg in Resources */,
+				F4ADA1BB21CA31EC00A5D2EC /* cosplay_baxituzhu.jpg in Resources */,
 				F4CB992421C384A000250297 /* makeup_normal@3x.png in Resources */,
+				F4CF6E3C21CA65E10000393B /* 5.png in Resources */,
+				F4ADA1C421CA31EC00A5D2EC /* cosplay_taohua.jpg in Resources */,
+				F4CF6E3321CA65E10000393B /* 7.png in Resources */,
+				F4ADA19821CA062100A5D2EC /* video_normal@2x.png in Resources */,
+				F4ADA19421CA062100A5D2EC /* collage_normal@2x.png in Resources */,
+				F4ADA19521CA062100A5D2EC /* datoutie_normal@2x.png in Resources */,
+				F4CF6E3E21CA65E10000393B /* 4.png in Resources */,
+				F4ADA1BC21CA31EC00A5D2EC /* cosplay_paopao.jpg in Resources */,
+				F4ADA1B621CA31EC00A5D2EC /* cosplay_wumeiniang.jpg in Resources */,
 				F4B0536421C5584400EB8AF4 /* makeup_babifen.png in Resources */,
+				F4CF6E3821CA65E10000393B /* 3.jpg in Resources */,
 				F4B0536321C5584400EB8AF4 /* makeup_yinghuafen.png in Resources */,
+				F4ADA1BF21CA31EC00A5D2EC /* cosplay_meiyangyang.jpg in Resources */,
 				F4B0535D21C5584400EB8AF4 /* makeup_fennen.png in Resources */,
 				F4B0534C21C5513000EB8AF4 /* camera_box@2x.png in Resources */,
+				F4CF6E3B21CA65E10000393B /* 2.png in Resources */,
+				F4ADA1B921CA31EC00A5D2EC /* cosplay_aiji.jpg in Resources */,
+				F4CF6E3521CA65E10000393B /* 10.jpg in Resources */,
+				F4ADA1B821CA31EC00A5D2EC /* cosplay_aiguo.jpg in Resources */,
 				F4B0535F21C5584400EB8AF4 /* makeup_yanhui.png in Resources */,
 				F41496A221BCADE70056C6E7 /* haoran.jpg in Resources */,
+				F4CF6E3621CA65E10000393B /* 6.png in Resources */,
 				F4A5D48121BFFD0E00734D3B /* beauty_shortcuticon.png in Resources */,
-				F414964E21BBC4040056C6E7 /* Main.storyboard in Resources */,
 				F4CB991E21C3841000250297 /* edit_normal@3x.png in Resources */,
 				F414969D21BBE66A0056C6E7 /* SVProgressHUD.bundle in Resources */,
+				F4ADA1C021CA31EC00A5D2EC /* cosplay_jiangshi.jpg in Resources */,
 				F4CB991D21C3841000250297 /* datoutie_normal@3x.png in Resources */,
 				F4B0535021C5514600EB8AF4 /* savesuc1@2x.png in Resources */,
+				F4ADA19221CA062100A5D2EC /* edit_normal@2x.png in Resources */,
 				F4B0534E21C5513F00EB8AF4 /* ae_camera@2x.png in Resources */,
+				F4CF6E3921CA65E10000393B /* 9.jpg in Resources */,
+				F4ADA1C321CA31EC00A5D2EC /* cosplay_huiguniang.jpg in Resources */,
 				F4B0535E21C5584400EB8AF4 /* makeup_fenzi.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -473,6 +647,7 @@
 				F414969A21BBE66A0056C6E7 /* SVProgressAnimatedView.m in Sources */,
 				F414967321BBDEEB0056C6E7 /* AboutViewController.m in Sources */,
 				F414969921BBE66A0056C6E7 /* SVRadialGradientLayer.m in Sources */,
+				F4ADA1A521CA198700A5D2EC /* MBProgressHUD.m in Sources */,
 				F414968821BBE65D0056C6E7 /* AFURLResponseSerialization.m in Sources */,
 				F4B052FA21C5425400EB8AF4 /* MLPickerScrollView.m in Sources */,
 				F4B052FB21C5425400EB8AF4 /* MLPickerItem.m in Sources */,
@@ -486,18 +661,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F414964C21BBC4040056C6E7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F414964D21BBC4040056C6E7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F414965121BBC4060056C6E7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				F414965221BBC4060056C6E7 /* Base */,
+				F4CF6E2121CA51FB0000393B /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -509,6 +677,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -568,6 +737,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
