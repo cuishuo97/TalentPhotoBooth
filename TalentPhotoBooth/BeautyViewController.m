@@ -159,7 +159,7 @@
 - (IBAction)pressUpload:(id)sender {
     
     if (self.imageView.image == NULL) {
-        [SVProgressHUD showErrorWithStatus:@"照片？？？"];
+        [SVProgressHUD showErrorWithStatus:@"请先上传照片"];
         return;
     }
     
