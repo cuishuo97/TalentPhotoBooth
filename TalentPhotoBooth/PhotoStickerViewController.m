@@ -40,9 +40,9 @@
     UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:@"请选择照片来源" preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *selectAlbum = [UIAlertAction actionWithTitle:@"从手机相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         // 判断是否可以打开相册/相机/相簿
-        if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) [SVProgressHUD showErrorWithStatus:@"无法打开相册"];
+        if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum]) [SVProgressHUD showErrorWithStatus:@"无法打开相册"];
         UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary; // 设置控制器类型
+        picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum; // 设置控制器类型
         // UIImagePickerController继承UINavigationController实现UINavigationDelegate和UIImagePickerControllerDelegate
         picker.delegate = self; // 设置代理
         
@@ -82,6 +82,10 @@
 }
 */
 - (IBAction)pressUpload:(id)sender {
+    if (self.imageView.image == NULL) {
+        [SVProgressHUD showErrorWithStatus:@"请先上传照片"];
+        return;
+    }
     [ProgressHUD showLoadingMessage:@"正在合成" view:self.navigationController.view];
     
     NSData *imageData;
@@ -109,22 +113,27 @@
        headers:nil
       progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
           [ProgressHUD hideHUD:self.navigationController.view];
-          NSLog(@"response%@", responseObject);
+          [feedBackGenerator feedBack:@"SUCCESS"];
           NSDictionary *dic = responseObject;
           NSDictionary *data = dic[@"data"];
           NSDictionary *image = data[@"image"];
-          //NSLog(@"image!!!%@", image);
           
           NSString *image_str = [NSString stringWithFormat:@"%@", image];
-          //NSLog(@"%@", image_str);
+          
           self.imageView.image = [Utility stringToImage:image_str];
           
       } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+          [feedBackGenerator feedBack:@"ERROR"];
           NSLog(@"Fail");
           NSLog(@"%@", [error localizedDescription]);
+                  [SVProgressHUD showErrorWithStatus:[@"合成失败\n" stringByAppendingString:[error localizedDescription]]];
       }];
 }
 - (IBAction)pressShare:(id)sender {
+    if (self.imageView.image == NULL) {
+        [SVProgressHUD showErrorWithStatus:@"请先上传照片"];
+        return;
+    }
             [self presentViewController:[shareViewController showShareVC:self.imageView.image] animated:YES completion:nil];
 }
 
@@ -175,36 +184,6 @@
     _pickerScollView.seletedIndex = number;
     [_pickerScollView scollToSelectdIndex:number];
     
-}
-
-- (void)setUpSureButton
-{
-    sureButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    sureButton.frame = CGRectMake(15, SCREEN_HEIGHT - 200, SCREEN_WIDTH - 30, 44);
-    sureButton.backgroundColor = kRGB236;
-    sureButton.layer.cornerRadius = 22;
-    sureButton.layer.masksToBounds = YES;
-    [sureButton setTitle:@"确定" forState:UIControlStateNormal];
-    [sureButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [sureButton addTarget:self action:@selector(clickSure) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:sureButton];
-}
-
-#pragma mark - Action
-- (void)clickSure
-{
-    NSLog(@"确定--选择折扣Index为%ld",(long)_pickerScollView.seletedIndex);
-    
-    NSString *title;
-    for (int i = 0; i < data.count; i++) {
-        MLDemoModel *model = [data objectAtIndex:i];
-        if (model.dicountIndex == _pickerScollView.seletedIndex) {
-            title = model.dicountTitle;
-        }
-    }
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:nil delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
-    [alert show];
 }
 
 #pragma mark - dataSource

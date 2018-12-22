@@ -31,9 +31,9 @@
     UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:@"请选择照片来源" preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *selectAlbum = [UIAlertAction actionWithTitle:@"从手机相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         // 判断是否可以打开相册/相机/相簿
-        if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) [SVProgressHUD showErrorWithStatus:@"无法打开相册"];
+        if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum]) [SVProgressHUD showErrorWithStatus:@"无法打开相册"];
         UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary; // 设置控制器类型
+        picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum; // 设置控制器类型
         // UIImagePickerController继承UINavigationController实现UINavigationDelegate和UIImagePickerControllerDelegate
         picker.delegate = self; // 设置代理
         
@@ -64,6 +64,10 @@
     
 }
 - (IBAction)pressUpload:(id)sender {
+    if (self.imageView.image == NULL) {
+        [SVProgressHUD showErrorWithStatus:@"请先上传照片"];
+        return;
+    }
     NSData *imageData;
     imageData = [photoCompress resetSizeOfImageData:self.imageView.image maxSize:65];
     self.imageView.image = [UIImage imageWithData: imageData];
@@ -84,7 +88,6 @@
     
     AFHTTPSessionManager *http = [AFHTTPSessionManager manager];
     [http POST:@"https://aip.baidubce.com/rest/2.0/image-classify/v1/body_seg?access_token=24.428835fc7cc38ae1b90ca0a12b5e70a2.2592000.1548059108.282335-15236786" parameters:dic headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        //[SVProgressHUD dismiss];
         [ProgressHUD hideHUD:self.navigationController.view];
         [feedBackGenerator feedBack:@"SUCCESS"];
         NSLog(@"%@",responseObject);
@@ -97,6 +100,7 @@
         self.imageView.image = temp;
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [ProgressHUD hideHUD:self.navigationController.view];
+        [feedBackGenerator feedBack:@"ERROR"];
         NSLog(@"失败");
         NSLog(@"%@",[error localizedDescription]);
         [SVProgressHUD showErrorWithStatus:[@"合成失败\n" stringByAppendingString:[error localizedDescription]]];
@@ -144,7 +148,7 @@
 
 - (IBAction)pressShare:(id)sender {
     if (self.imageView.image == NULL) {
-        [SVProgressHUD showErrorWithStatus:@"请先"];
+        [SVProgressHUD showErrorWithStatus:@"请先上传照片"];
     }
     else {
         [self presentViewController:[shareViewController showShareVC:self.imageView.image] animated:YES completion:nil];

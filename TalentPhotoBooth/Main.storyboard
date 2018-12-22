@@ -46,6 +46,7 @@
                                 <rect key="frame" x="134" y="460" width="147" height="147"/>
                                 <state key="normal" image="cutout_normal.png"/>
                                 <connections>
+                                    <action selector="pressWipeBackground:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C2Z-3N-kF9"/>
                                     <segue destination="gef-GF-qfr" kind="show" id="Esh-hK-2AS"/>
                                 </connections>
                             </button>
@@ -85,6 +86,7 @@
                                 <rect key="frame" x="251" y="460" width="147" height="147"/>
                                 <state key="normal" image="datoutie_normal.png"/>
                                 <connections>
+                                    <action selector="pressFaceAssessment:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cUr-7x-pFu"/>
                                     <segue destination="i0U-8N-QfD" kind="show" id="u5c-p5-Cid"/>
                                 </connections>
                             </button>
@@ -403,7 +405,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="haoran.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="1MG-5c-gzz">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1MG-5c-gzz">
                                 <rect key="frame" x="10" y="76" width="395" height="503"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -614,7 +616,6 @@
         <image name="cutout_normal.png" width="147" height="147"/>
         <image name="datoutie_normal.png" width="147" height="147"/>
         <image name="edit_normal.png" width="147" height="147"/>
-        <image name="haoran.jpg" width="1080" height="1619"/>
         <image name="makeup_normal.png" width="147" height="147"/>
     </resources>
 </document>

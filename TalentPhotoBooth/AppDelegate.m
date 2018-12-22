@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "BeautyViewController.h"
 #import "BeautyMakeUpViewController.h"
+#import "CrazyMakeUpViewController.h"
 
 
 @interface AppDelegate ()
@@ -30,11 +31,9 @@
     
 
         
-        NSLog(@"美颜222");
-        
-//        BeautyViewController *beautyVC = [[BeautyViewController alloc] init];
-//        [self.window.rootViewController presentViewController: beautyVC animated:YES completion:^{
-//        }];
+        BeautyViewController *beautyVC = [[BeautyViewController alloc] init];
+        [self.window.rootViewController presentViewController: beautyVC animated:YES completion:^{
+        }];
         
 //        BeautyViewController *beautyVC = [self.storyboard instantiateViewControllerWithIdentifier:@"id"];
 //        [self.window.rootViewController presentViewController: beautyVC animated:YES completion:^{
@@ -45,6 +44,12 @@
     else if ([shortcutItem.type isEqualToString:@"shortcutMakeUp"]) {
         BeautyMakeUpViewController *beautyMakeUpVC = [[BeautyMakeUpViewController alloc] init];
         [self.window.rootViewController presentViewController:beautyMakeUpVC animated:YES completion:nil];
+    }
+    
+    else if ([shortcutItem.type isEqualToString:@"shortcutCosplay"]) {
+        CrazyMakeUpViewController *crazyMakeUpVC = [[CrazyMakeUpViewController alloc] init];
+        
+        [self.window.rootViewController presentViewController:crazyMakeUpVC animated:YES completion:nil];
     }
     
 }

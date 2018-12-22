@@ -32,8 +32,6 @@
 //    BeautyViewController *beautyVC = [self.storyboard instantiateViewControllerWithIdentifier:@"id"];
 //    [self presentViewController:beautyVC animated:YES completion:nil];
 
-    
-    
 }
 
 //美妆触觉反馈
@@ -49,5 +47,14 @@
 - (IBAction)pressPhotoSticker:(id)sender {
     [feedBackGenerator feedBack:@"MEDIUM"];
 }
+//魔法抠图触觉反馈
+- (IBAction)pressWipeBackground:(id)sender {
+    [feedBackGenerator feedBack:@"MEDIUM"];
+}
+//颜龄检测触觉反馈
+- (IBAction)pressFaceAssessment:(id)sender {
+    [feedBackGenerator feedBack:@"MEDIUM"];
+}
+
 
 @end

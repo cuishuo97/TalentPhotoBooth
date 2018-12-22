@@ -17,9 +17,9 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.9.6</string>
+	<string>0.9.7</string>
 	<key>CFBundleVersion</key>
-	<string>201</string>
+	<string>202</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
@@ -45,6 +45,14 @@
 			<string>美容美妆</string>
 			<key>UIApplicationShortcutItemType</key>
 			<string>shortcutMakeUp</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>cosplay_shortcuticon</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>疯狂变妆</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>shortcutCosplay</string>
 		</dict>
 	</array>
 	<key>UILaunchStoryboardName</key>
