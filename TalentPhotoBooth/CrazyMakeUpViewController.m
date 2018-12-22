@@ -132,6 +132,7 @@
           
           
       } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+          [ProgressHUD hideHUD:self.navigationController.view];
           [feedBackGenerator feedBack:@"ERROR"];
           NSLog(@"Fail");
           NSLog(@"%@", [error localizedDescription]);

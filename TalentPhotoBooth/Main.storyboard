@@ -354,7 +354,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="Zg7-ow-Ro8">
+                            <tableViewSection footerTitle="@崔硕  @程来勇  @陈浩" id="Zg7-ow-Ro8">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="ccL-Iw-igf" detailTextLabel="VMG-3Y-rgT" style="IBUITableViewCellStyleValue1" id="3qK-dU-nCg">
                                         <rect key="frame" x="0.0" y="239" width="414" height="44"/>
@@ -405,13 +405,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1MG-5c-gzz">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1MG-5c-gzz">
                                 <rect key="frame" x="10" y="76" width="395" height="503"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="503" id="0yj-bT-ZIL"/>
+                                    <constraint firstAttribute="width" constant="395" id="k8C-lH-e6O"/>
+                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFh-mK-Qj5">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFh-mK-Qj5">
                                 <rect key="frame" x="9" y="592" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="上传"/>
                                 <connections>
                                     <action selector="pressUpload:" destination="KIv-Bl-BW4" eventType="touchUpInside" id="8gR-Bn-zRO"/>
@@ -419,9 +421,8 @@
                                     <action selector="pressUpload:" destination="2rN-Rz-FwJ" eventType="touchUpInside" id="oed-y3-XlU"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MOT-nQ-UMp">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MOT-nQ-UMp">
                                 <rect key="frame" x="374" y="592" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="分享"/>
                                 <connections>
                                     <action selector="pressShare:" destination="2rN-Rz-FwJ" eventType="touchUpInside" id="O0y-sc-lnL"/>
@@ -430,6 +431,16 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lFh-mK-Qj5" firstAttribute="top" secondItem="1MG-5c-gzz" secondAttribute="bottom" constant="13" id="6ki-6b-29S"/>
+                            <constraint firstItem="6OE-5Q-yXM" firstAttribute="trailing" secondItem="MOT-nQ-UMp" secondAttribute="trailing" constant="9" id="9By-N8-Gbv"/>
+                            <constraint firstItem="6OE-5Q-yXM" firstAttribute="trailing" secondItem="1MG-5c-gzz" secondAttribute="trailing" constant="9" id="Rbt-8t-Zxy"/>
+                            <constraint firstItem="lFh-mK-Qj5" firstAttribute="leading" secondItem="6OE-5Q-yXM" secondAttribute="leading" constant="9" id="b5v-tu-DkO"/>
+                            <constraint firstItem="MOT-nQ-UMp" firstAttribute="top" secondItem="1MG-5c-gzz" secondAttribute="bottom" constant="13" id="b7w-Rl-r8c"/>
+                            <constraint firstItem="6OE-5Q-yXM" firstAttribute="bottom" secondItem="1MG-5c-gzz" secondAttribute="bottom" constant="157" id="if5-yg-UPw"/>
+                            <constraint firstItem="1MG-5c-gzz" firstAttribute="leading" secondItem="6OE-5Q-yXM" secondAttribute="leading" constant="10" id="je9-PZ-mGz"/>
+                            <constraint firstItem="1MG-5c-gzz" firstAttribute="top" secondItem="6OE-5Q-yXM" secondAttribute="top" constant="12" id="mSo-qW-yZn"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6OE-5Q-yXM"/>
                     </view>
                     <connections>
@@ -449,22 +460,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vPJ-Wu-RCe">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vPJ-Wu-RCe">
                                 <rect key="frame" x="10" y="76" width="395" height="503"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="395" id="Ao8-TB-pzI"/>
+                                    <constraint firstAttribute="height" constant="503" id="TVG-d3-CL0"/>
+                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gtk-EX-dOF">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gtk-EX-dOF">
                                 <rect key="frame" x="9" y="592" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="上传"/>
                                 <connections>
                                     <action selector="pressUpload:" destination="x5E-5z-UpH" eventType="touchUpInside" id="4PK-ak-Jdj"/>
                                     <action selector="pressUpload:" destination="Cvd-jc-gbM" eventType="touchUpInside" id="94p-Sp-53P"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y9n-CX-ZfF">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y9n-CX-ZfF">
                                 <rect key="frame" x="374" y="592" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="分享"/>
                                 <connections>
                                     <action selector="pressShare:" destination="x5E-5z-UpH" eventType="touchUpInside" id="vXt-LQ-LCu"/>
@@ -473,6 +485,16 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vPJ-Wu-RCe" firstAttribute="leading" secondItem="K4t-Jq-cqI" secondAttribute="leading" constant="10" id="LbJ-ma-PxD"/>
+                            <constraint firstItem="vPJ-Wu-RCe" firstAttribute="top" secondItem="K4t-Jq-cqI" secondAttribute="top" constant="12" id="MYg-Jw-rdQ"/>
+                            <constraint firstItem="y9n-CX-ZfF" firstAttribute="top" secondItem="vPJ-Wu-RCe" secondAttribute="bottom" constant="13" id="T9i-n0-reF"/>
+                            <constraint firstItem="K4t-Jq-cqI" firstAttribute="bottom" secondItem="vPJ-Wu-RCe" secondAttribute="bottom" constant="157" id="XR7-qu-93W"/>
+                            <constraint firstItem="K4t-Jq-cqI" firstAttribute="trailing" secondItem="y9n-CX-ZfF" secondAttribute="trailing" constant="9" id="atL-W7-9xe"/>
+                            <constraint firstItem="K4t-Jq-cqI" firstAttribute="trailing" secondItem="vPJ-Wu-RCe" secondAttribute="trailing" constant="9" id="ffE-lJ-6ZO"/>
+                            <constraint firstItem="Gtk-EX-dOF" firstAttribute="top" secondItem="vPJ-Wu-RCe" secondAttribute="bottom" constant="13" id="rL0-gi-Nq5"/>
+                            <constraint firstItem="Gtk-EX-dOF" firstAttribute="leading" secondItem="K4t-Jq-cqI" secondAttribute="leading" constant="9" id="uju-GY-XAF"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="K4t-Jq-cqI"/>
                     </view>
                     <connections>
@@ -491,13 +513,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lDY-Cf-tXJ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lDY-Cf-tXJ">
                                 <rect key="frame" x="10" y="76" width="395" height="503"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="503" id="65f-0q-x7z"/>
+                                    <constraint firstAttribute="width" constant="395" id="MKw-5c-Bmu"/>
+                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmY-Eu-bRW">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmY-Eu-bRW">
                                 <rect key="frame" x="9" y="592" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="上传"/>
                                 <connections>
                                     <action selector="pressUpload:" destination="x5E-5z-UpH" eventType="touchUpInside" id="CL5-KY-AaT"/>
@@ -505,9 +529,8 @@
                                     <action selector="pressUpload:" destination="Cvd-jc-gbM" eventType="touchUpInside" id="t89-3V-XQg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ylQ-27-oqL">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ylQ-27-oqL">
                                 <rect key="frame" x="374" y="592" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="分享"/>
                                 <connections>
                                     <action selector="pressShare:" destination="MmF-oR-Taj" eventType="touchUpInside" id="Ktu-EN-QXE"/>
@@ -517,6 +540,16 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bmY-Eu-bRW" firstAttribute="leading" secondItem="KZR-AU-31a" secondAttribute="leading" constant="9" id="BlR-FS-G5l"/>
+                            <constraint firstItem="bmY-Eu-bRW" firstAttribute="top" secondItem="lDY-Cf-tXJ" secondAttribute="bottom" constant="13" id="C4x-ND-oBm"/>
+                            <constraint firstItem="KZR-AU-31a" firstAttribute="trailing" secondItem="lDY-Cf-tXJ" secondAttribute="trailing" constant="9" id="DfQ-tH-Tac"/>
+                            <constraint firstItem="lDY-Cf-tXJ" firstAttribute="top" secondItem="KZR-AU-31a" secondAttribute="top" constant="12" id="ND2-WN-pl2"/>
+                            <constraint firstItem="KZR-AU-31a" firstAttribute="trailing" secondItem="ylQ-27-oqL" secondAttribute="trailing" constant="9" id="auy-tG-CMs"/>
+                            <constraint firstItem="lDY-Cf-tXJ" firstAttribute="leading" secondItem="KZR-AU-31a" secondAttribute="leading" constant="10" id="kpF-yC-eqY"/>
+                            <constraint firstItem="ylQ-27-oqL" firstAttribute="top" secondItem="lDY-Cf-tXJ" secondAttribute="bottom" constant="13" id="p5B-8o-l3Q"/>
+                            <constraint firstItem="KZR-AU-31a" firstAttribute="bottom" secondItem="lDY-Cf-tXJ" secondAttribute="bottom" constant="157" id="qqd-w9-KXI"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="KZR-AU-31a"/>
                     </view>
                     <connections>
@@ -532,24 +565,25 @@
             <objects>
                 <viewController title="魔法抠图" id="gef-GF-qfr" customClass="wipeBackgroundViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LBT-eg-NTs">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ozd-vp-It6">
-                                <rect key="frame" x="10" y="76" width="395" height="556"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ozd-vp-It6">
+                                <rect key="frame" x="10" y="76" width="301" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="395" id="MNC-qf-X9s"/>
+                                    <constraint firstAttribute="height" constant="556" id="RKI-tg-wPi"/>
+                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G5s-JK-Xem">
-                                <rect key="frame" x="10" y="670" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G5s-JK-Xem">
+                                <rect key="frame" x="10" y="414" width="31" height="30"/>
                                 <state key="normal" title="上传"/>
                                 <connections>
                                     <action selector="pressUpload:" destination="gef-GF-qfr" eventType="touchUpInside" id="tqW-oQ-sV4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mYW-q8-Odl">
-                                <rect key="frame" x="374" y="674" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mYW-q8-Odl">
+                                <rect key="frame" x="280" y="418" width="31" height="30"/>
                                 <state key="normal" title="分享"/>
                                 <connections>
                                     <action selector="pressShare:" destination="gef-GF-qfr" eventType="touchUpInside" id="eEL-gq-4tY"/>
@@ -557,6 +591,16 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="G5s-JK-Xem" firstAttribute="top" secondItem="Ozd-vp-It6" secondAttribute="bottom" constant="38" id="0xJ-zI-WWZ"/>
+                            <constraint firstItem="G5s-JK-Xem" firstAttribute="leading" secondItem="tgh-As-zdI" secondAttribute="leading" constant="10" id="AcH-Vn-ckD"/>
+                            <constraint firstItem="tgh-As-zdI" firstAttribute="trailing" secondItem="mYW-q8-Odl" secondAttribute="trailing" constant="9" id="Rdq-5L-RSm"/>
+                            <constraint firstItem="tgh-As-zdI" firstAttribute="bottom" secondItem="Ozd-vp-It6" secondAttribute="bottom" constant="104" id="eqP-ko-2IP"/>
+                            <constraint firstItem="Ozd-vp-It6" firstAttribute="leading" secondItem="tgh-As-zdI" secondAttribute="leading" constant="10" id="ivR-o7-V2Y"/>
+                            <constraint firstItem="tgh-As-zdI" firstAttribute="trailing" secondItem="Ozd-vp-It6" secondAttribute="trailing" constant="9" id="m2e-Cq-NWW"/>
+                            <constraint firstItem="mYW-q8-Odl" firstAttribute="top" secondItem="Ozd-vp-It6" secondAttribute="bottom" constant="42" id="mLS-Dp-5xE"/>
+                            <constraint firstItem="Ozd-vp-It6" firstAttribute="top" secondItem="tgh-As-zdI" secondAttribute="top" constant="12" id="wFr-xQ-C5G"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="tgh-As-zdI"/>
                     </view>
                     <connections>
@@ -575,22 +619,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t7d-cb-SP4">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="t7d-cb-SP4">
                                 <rect key="frame" x="10" y="76" width="395" height="556"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="556" id="yzY-jr-WeR"/>
+                                    <constraint firstAttribute="width" constant="395" id="zhR-OA-7LX"/>
+                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5vd-4S-iWd">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5vd-4S-iWd">
                                 <rect key="frame" x="10" y="670" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="上传"/>
                                 <connections>
                                     <action selector="pressUpload:" destination="gef-GF-qfr" eventType="touchUpInside" id="5UQ-t0-WOF"/>
                                     <action selector="pressUpload:" destination="i0U-8N-QfD" eventType="touchUpInside" id="sDz-iY-HjS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddz-q6-kXt">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddz-q6-kXt">
                                 <rect key="frame" x="374" y="670" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="分享"/>
                                 <connections>
                                     <action selector="pressShare:" destination="gef-GF-qfr" eventType="touchUpInside" id="8cN-Wf-Qa2"/>
@@ -599,6 +644,16 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5vd-4S-iWd" firstAttribute="leading" secondItem="iSa-yE-5qp" secondAttribute="leading" constant="10" id="15S-yE-KBf"/>
+                            <constraint firstItem="iSa-yE-5qp" firstAttribute="trailing" secondItem="t7d-cb-SP4" secondAttribute="trailing" constant="9" id="3vI-cr-vGO"/>
+                            <constraint firstItem="ddz-q6-kXt" firstAttribute="top" secondItem="t7d-cb-SP4" secondAttribute="bottom" constant="38" id="93k-y7-ibn"/>
+                            <constraint firstItem="t7d-cb-SP4" firstAttribute="top" secondItem="iSa-yE-5qp" secondAttribute="top" constant="12" id="DLs-BF-gFO"/>
+                            <constraint firstItem="t7d-cb-SP4" firstAttribute="leading" secondItem="iSa-yE-5qp" secondAttribute="leading" constant="10" id="Xg9-sV-rA1"/>
+                            <constraint firstItem="iSa-yE-5qp" firstAttribute="trailing" secondItem="ddz-q6-kXt" secondAttribute="trailing" constant="9" id="d4e-OK-jG3"/>
+                            <constraint firstItem="iSa-yE-5qp" firstAttribute="bottom" secondItem="t7d-cb-SP4" secondAttribute="bottom" constant="104" id="hBr-CV-X6n"/>
+                            <constraint firstItem="5vd-4S-iWd" firstAttribute="top" secondItem="t7d-cb-SP4" secondAttribute="bottom" constant="38" id="oWp-i4-2vl"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="iSa-yE-5qp"/>
                     </view>
                     <connections>
