@@ -30,6 +30,10 @@
 		F41496A021BC1A1C0056C6E7 /* BeautyMakeUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F414969F21BC1A1C0056C6E7 /* BeautyMakeUpViewController.m */; };
 		F41496A221BCADE70056C6E7 /* haoran.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F41496A121BCADE70056C6E7 /* haoran.jpg */; };
 		F41496A421BD18700056C6E7 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F41496A321BD18700056C6E7 /* MessageUI.framework */; };
+		F42AB52E21CD305000F4DDE2 /* FaceAssessmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F42AB52D21CD305000F4DDE2 /* FaceAssessmentViewController.m */; };
+		F42AB53121CE08D000F4DDE2 /* Base64Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = F42AB52F21CE08D000F4DDE2 /* Base64Singleton.m */; };
+		F44DA17C21CB6890003F7C22 /* NSString +URL.m in Sources */ = {isa = PBXBuildFile; fileRef = F44DA17B21CB6890003F7C22 /* NSString +URL.m */; };
+		F44DA17F21CB7A75003F7C22 /* wipeBackgroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F44DA17E21CB7A75003F7C22 /* wipeBackgroundViewController.m */; };
 		F4A5D47721BEBFD800734D3B /* crazy_makeup_normal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4A5D47621BEBFD800734D3B /* crazy_makeup_normal@3x.png */; };
 		F4A5D48121BFFD0E00734D3B /* beauty_shortcuticon.png in Resources */ = {isa = PBXBuildFile; fileRef = F4A5D48021BFFD0D00734D3B /* beauty_shortcuticon.png */; };
 		F4A5D48321BFFE7E00734D3B /* makeup_shortcuticon.png in Resources */ = {isa = PBXBuildFile; fileRef = F4A5D48221BFFE7D00734D3B /* makeup_shortcuticon.png */; };
@@ -85,21 +89,21 @@
 		F4CB992221C3841900250297 /* cartoon_normal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4CB992021C3841900250297 /* cartoon_normal@3x.png */; };
 		F4CB992421C384A000250297 /* makeup_normal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4CB992321C384A000250297 /* makeup_normal@3x.png */; };
 		F4CB992621C384A400250297 /* cutout_normal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4CB992521C384A400250297 /* cutout_normal@3x.png */; };
-		F4CF6E3221CA65E10000393B /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2321CA65E00000393B /* 1.png */; };
-		F4CF6E3321CA65E10000393B /* 7.png in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2421CA65E10000393B /* 7.png */; };
-		F4CF6E3421CA65E10000393B /* 8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2521CA65E10000393B /* 8.jpg */; };
-		F4CF6E3521CA65E10000393B /* 10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2621CA65E10000393B /* 10.jpg */; };
-		F4CF6E3621CA65E10000393B /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2721CA65E10000393B /* 6.png */; };
-		F4CF6E3721CA65E10000393B /* 12.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2821CA65E10000393B /* 12.jpg */; };
-		F4CF6E3821CA65E10000393B /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2921CA65E10000393B /* 3.jpg */; };
-		F4CF6E3921CA65E10000393B /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2A21CA65E10000393B /* 9.jpg */; };
-		F4CF6E3A21CA65E10000393B /* 14.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2B21CA65E10000393B /* 14.jpg */; };
-		F4CF6E3B21CA65E10000393B /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2C21CA65E10000393B /* 2.png */; };
-		F4CF6E3C21CA65E10000393B /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2D21CA65E10000393B /* 5.png */; };
-		F4CF6E3D21CA65E10000393B /* 15.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2E21CA65E10000393B /* 15.jpg */; };
-		F4CF6E3E21CA65E10000393B /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2F21CA65E10000393B /* 4.png */; };
-		F4CF6E3F21CA65E10000393B /* 11.png in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E3021CA65E10000393B /* 11.png */; };
-		F4CF6E4021CA65E10000393B /* 13.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E3121CA65E10000393B /* 13.jpg */; };
+		F4CF6E3221CA65E10000393B /* sticker_newday.png in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2321CA65E00000393B /* sticker_newday.png */; };
+		F4CF6E3321CA65E10000393B /* sticker_christmas2.png in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2421CA65E10000393B /* sticker_christmas2.png */; };
+		F4CF6E3421CA65E10000393B /* sticker_circlecat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2521CA65E10000393B /* sticker_circlecat.jpg */; };
+		F4CF6E3521CA65E10000393B /* sticker_circlepig.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2621CA65E10000393B /* sticker_circlepig.jpg */; };
+		F4CF6E3621CA65E10000393B /* sticker_christmas.png in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2721CA65E10000393B /* sticker_christmas.png */; };
+		F4CF6E3721CA65E10000393B /* sticker_cutebaby.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2821CA65E10000393B /* sticker_cutebaby.jpg */; };
+		F4CF6E3821CA65E10000393B /* sticker_bonvoyage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2921CA65E10000393B /* sticker_bonvoyage.jpg */; };
+		F4CF6E3921CA65E10000393B /* sticker_circlemouse.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2A21CA65E10000393B /* sticker_circlemouse.jpg */; };
+		F4CF6E3A21CA65E10000393B /* sticker_fairytale.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2B21CA65E10000393B /* sticker_fairytale.jpg */; };
+		F4CF6E3B21CA65E10000393B /* sticker_chiqiu1.png in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2C21CA65E10000393B /* sticker_chiqiu1.png */; };
+		F4CF6E3C21CA65E10000393B /* sticker_chickenspring.png in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2D21CA65E10000393B /* sticker_chickenspring.png */; };
+		F4CF6E3D21CA65E10000393B /* sticker_goodnight.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2E21CA65E10000393B /* sticker_goodnight.jpg */; };
+		F4CF6E3E21CA65E10000393B /* sticker_enjoy.png in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E2F21CA65E10000393B /* sticker_enjoy.png */; };
+		F4CF6E3F21CA65E10000393B /* sticker_comicmn.png in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E3021CA65E10000393B /* sticker_comicmn.png */; };
+		F4CF6E4021CA65E10000393B /* sticker_envolope.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4CF6E3121CA65E10000393B /* sticker_envolope.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -146,6 +150,14 @@
 		F414969F21BC1A1C0056C6E7 /* BeautyMakeUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeautyMakeUpViewController.m; sourceTree = "<group>"; };
 		F41496A121BCADE70056C6E7 /* haoran.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = haoran.jpg; sourceTree = "<group>"; };
 		F41496A321BD18700056C6E7 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		F42AB52C21CD305000F4DDE2 /* FaceAssessmentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FaceAssessmentViewController.h; sourceTree = "<group>"; };
+		F42AB52D21CD305000F4DDE2 /* FaceAssessmentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FaceAssessmentViewController.m; sourceTree = "<group>"; };
+		F42AB52F21CE08D000F4DDE2 /* Base64Singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64Singleton.m; sourceTree = "<group>"; };
+		F42AB53021CE08D000F4DDE2 /* Base64Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Singleton.h; sourceTree = "<group>"; };
+		F44DA17A21CB67EC003F7C22 /* NSString +URL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString +URL.h"; sourceTree = "<group>"; };
+		F44DA17B21CB6890003F7C22 /* NSString +URL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString +URL.m"; sourceTree = "<group>"; };
+		F44DA17D21CB7A75003F7C22 /* wipeBackgroundViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wipeBackgroundViewController.h; sourceTree = "<group>"; };
+		F44DA17E21CB7A75003F7C22 /* wipeBackgroundViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wipeBackgroundViewController.m; sourceTree = "<group>"; };
 		F4A5D47621BEBFD800734D3B /* crazy_makeup_normal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "crazy_makeup_normal@3x.png"; sourceTree = "<group>"; };
 		F4A5D47F21BFD16000734D3B /* ToolKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolKit.h; sourceTree = "<group>"; };
 		F4A5D48021BFFD0D00734D3B /* beauty_shortcuticon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beauty_shortcuticon.png; sourceTree = "<group>"; };
@@ -211,21 +223,21 @@
 		F4CB992321C384A000250297 /* makeup_normal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "makeup_normal@3x.png"; sourceTree = "<group>"; };
 		F4CB992521C384A400250297 /* cutout_normal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cutout_normal@3x.png"; sourceTree = "<group>"; };
 		F4CF6E2121CA51FB0000393B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		F4CF6E2321CA65E00000393B /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
-		F4CF6E2421CA65E10000393B /* 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 7.png; sourceTree = "<group>"; };
-		F4CF6E2521CA65E10000393B /* 8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 8.jpg; sourceTree = "<group>"; };
-		F4CF6E2621CA65E10000393B /* 10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 10.jpg; sourceTree = "<group>"; };
-		F4CF6E2721CA65E10000393B /* 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6.png; sourceTree = "<group>"; };
-		F4CF6E2821CA65E10000393B /* 12.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 12.jpg; sourceTree = "<group>"; };
-		F4CF6E2921CA65E10000393B /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
-		F4CF6E2A21CA65E10000393B /* 9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 9.jpg; sourceTree = "<group>"; };
-		F4CF6E2B21CA65E10000393B /* 14.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 14.jpg; sourceTree = "<group>"; };
-		F4CF6E2C21CA65E10000393B /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
-		F4CF6E2D21CA65E10000393B /* 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5.png; sourceTree = "<group>"; };
-		F4CF6E2E21CA65E10000393B /* 15.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 15.jpg; sourceTree = "<group>"; };
-		F4CF6E2F21CA65E10000393B /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
-		F4CF6E3021CA65E10000393B /* 11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 11.png; sourceTree = "<group>"; };
-		F4CF6E3121CA65E10000393B /* 13.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 13.jpg; sourceTree = "<group>"; };
+		F4CF6E2321CA65E00000393B /* sticker_newday.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sticker_newday.png; sourceTree = "<group>"; };
+		F4CF6E2421CA65E10000393B /* sticker_christmas2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sticker_christmas2.png; sourceTree = "<group>"; };
+		F4CF6E2521CA65E10000393B /* sticker_circlecat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sticker_circlecat.jpg; sourceTree = "<group>"; };
+		F4CF6E2621CA65E10000393B /* sticker_circlepig.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sticker_circlepig.jpg; sourceTree = "<group>"; };
+		F4CF6E2721CA65E10000393B /* sticker_christmas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sticker_christmas.png; sourceTree = "<group>"; };
+		F4CF6E2821CA65E10000393B /* sticker_cutebaby.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sticker_cutebaby.jpg; sourceTree = "<group>"; };
+		F4CF6E2921CA65E10000393B /* sticker_bonvoyage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sticker_bonvoyage.jpg; sourceTree = "<group>"; };
+		F4CF6E2A21CA65E10000393B /* sticker_circlemouse.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sticker_circlemouse.jpg; sourceTree = "<group>"; };
+		F4CF6E2B21CA65E10000393B /* sticker_fairytale.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sticker_fairytale.jpg; sourceTree = "<group>"; };
+		F4CF6E2C21CA65E10000393B /* sticker_chiqiu1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sticker_chiqiu1.png; sourceTree = "<group>"; };
+		F4CF6E2D21CA65E10000393B /* sticker_chickenspring.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sticker_chickenspring.png; sourceTree = "<group>"; };
+		F4CF6E2E21CA65E10000393B /* sticker_goodnight.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sticker_goodnight.jpg; sourceTree = "<group>"; };
+		F4CF6E2F21CA65E10000393B /* sticker_enjoy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sticker_enjoy.png; sourceTree = "<group>"; };
+		F4CF6E3021CA65E10000393B /* sticker_comicmn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sticker_comicmn.png; sourceTree = "<group>"; };
+		F4CF6E3121CA65E10000393B /* sticker_envolope.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sticker_envolope.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,16 +281,24 @@
 				F414968E21BBE66A0056C6E7 /* SVProgressHUD */,
 				F414967121BBDEEB0056C6E7 /* AboutViewController.h */,
 				F414967221BBDEEB0056C6E7 /* AboutViewController.m */,
+				F42AB53021CE08D000F4DDE2 /* Base64Singleton.h */,
+				F42AB52F21CE08D000F4DDE2 /* Base64Singleton.m */,
 				F4B0536821C641B700EB8AF4 /* PhotoStickerViewController.h */,
 				F4B0536921C641B700EB8AF4 /* PhotoStickerViewController.m */,
+				F42AB52C21CD305000F4DDE2 /* FaceAssessmentViewController.h */,
+				F42AB52D21CD305000F4DDE2 /* FaceAssessmentViewController.m */,
 				F4A5D47F21BFD16000734D3B /* ToolKit.h */,
 				F4CB991921C3686300250297 /* ToolKit.m */,
 				F414964621BBC4040056C6E7 /* AppDelegate.h */,
 				F414964721BBC4040056C6E7 /* AppDelegate.m */,
 				F414964921BBC4040056C6E7 /* ViewController.h */,
 				F414964A21BBC4040056C6E7 /* ViewController.m */,
+				F44DA17D21CB7A75003F7C22 /* wipeBackgroundViewController.h */,
+				F44DA17E21CB7A75003F7C22 /* wipeBackgroundViewController.m */,
 				F414969E21BC1A1C0056C6E7 /* BeautyMakeUpViewController.h */,
 				F414969F21BC1A1C0056C6E7 /* BeautyMakeUpViewController.m */,
+				F44DA17A21CB67EC003F7C22 /* NSString +URL.h */,
+				F44DA17B21CB6890003F7C22 /* NSString +URL.m */,
 				F4B0536521C640F700EB8AF4 /* CrazyMakeUpViewController.h */,
 				F4B0536621C640F700EB8AF4 /* CrazyMakeUpViewController.m */,
 				F414967421BBE4FE0056C6E7 /* BeautyViewController.h */,
@@ -479,21 +499,21 @@
 		F4CF6E2221CA65AA0000393B /* PhotoSticker */ = {
 			isa = PBXGroup;
 			children = (
-				F4CF6E2321CA65E00000393B /* 1.png */,
-				F4CF6E2C21CA65E10000393B /* 2.png */,
-				F4CF6E2921CA65E10000393B /* 3.jpg */,
-				F4CF6E2F21CA65E10000393B /* 4.png */,
-				F4CF6E2D21CA65E10000393B /* 5.png */,
-				F4CF6E2721CA65E10000393B /* 6.png */,
-				F4CF6E2421CA65E10000393B /* 7.png */,
-				F4CF6E2521CA65E10000393B /* 8.jpg */,
-				F4CF6E2A21CA65E10000393B /* 9.jpg */,
-				F4CF6E2621CA65E10000393B /* 10.jpg */,
-				F4CF6E3021CA65E10000393B /* 11.png */,
-				F4CF6E2821CA65E10000393B /* 12.jpg */,
-				F4CF6E3121CA65E10000393B /* 13.jpg */,
-				F4CF6E2B21CA65E10000393B /* 14.jpg */,
-				F4CF6E2E21CA65E10000393B /* 15.jpg */,
+				F4CF6E2321CA65E00000393B /* sticker_newday.png */,
+				F4CF6E2C21CA65E10000393B /* sticker_chiqiu1.png */,
+				F4CF6E2921CA65E10000393B /* sticker_bonvoyage.jpg */,
+				F4CF6E2F21CA65E10000393B /* sticker_enjoy.png */,
+				F4CF6E2D21CA65E10000393B /* sticker_chickenspring.png */,
+				F4CF6E2721CA65E10000393B /* sticker_christmas.png */,
+				F4CF6E2421CA65E10000393B /* sticker_christmas2.png */,
+				F4CF6E2521CA65E10000393B /* sticker_circlecat.jpg */,
+				F4CF6E2A21CA65E10000393B /* sticker_circlemouse.jpg */,
+				F4CF6E2621CA65E10000393B /* sticker_circlepig.jpg */,
+				F4CF6E3021CA65E10000393B /* sticker_comicmn.png */,
+				F4CF6E2821CA65E10000393B /* sticker_cutebaby.jpg */,
+				F4CF6E3121CA65E10000393B /* sticker_envolope.jpg */,
+				F4CF6E2B21CA65E10000393B /* sticker_fairytale.jpg */,
+				F4CF6E2E21CA65E10000393B /* sticker_goodnight.jpg */,
 			);
 			path = PhotoSticker;
 			sourceTree = "<group>";
@@ -555,60 +575,60 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4CF6E4021CA65E10000393B /* 13.jpg in Resources */,
+				F4CF6E4021CA65E10000393B /* sticker_envolope.jpg in Resources */,
 				F4B0534A21C5512B00EB8AF4 /* ae_share@2x.png in Resources */,
 				F4B0536221C5584400EB8AF4 /* makeup_ziran.png in Resources */,
 				F4ADA1C121CA31EC00A5D2EC /* cosplay_huaqiangu.jpg in Resources */,
 				F4ADA19321CA062100A5D2EC /* makeup_normal@2x.png in Resources */,
 				F4ADA1BD21CA31EC00A5D2EC /* cosplay_daomadan.jpg in Resources */,
 				F4ADA19621CA062100A5D2EC /* cutout_normal@2x.png in Resources */,
-				F4CF6E3A21CA65E10000393B /* 14.jpg in Resources */,
+				F4CF6E3A21CA65E10000393B /* sticker_fairytale.jpg in Resources */,
 				F4A5D48521BFFE8700734D3B /* cosplay_shortcuticon.png in Resources */,
 				F414965321BBC4060056C6E7 /* LaunchScreen.storyboard in Resources */,
-				F4CF6E3D21CA65E10000393B /* 15.jpg in Resources */,
+				F4CF6E3D21CA65E10000393B /* sticker_goodnight.jpg in Resources */,
 				F4B0536021C5584400EB8AF4 /* makeup_yuansuhong.png in Resources */,
 				F4ADA1BE21CA31EC00A5D2EC /* cosplay_huoyingmingren.jpg in Resources */,
 				F4ADA19721CA062100A5D2EC /* cartoon_normal@2x.png in Resources */,
 				F4ADA1BA21CA31EC00A5D2EC /* cosplay_emo.jpg in Resources */,
 				F4A5D48321BFFE7E00734D3B /* makeup_shortcuticon.png in Resources */,
 				F4A5D47721BEBFD800734D3B /* crazy_makeup_normal@3x.png in Resources */,
-				F4CF6E3421CA65E10000393B /* 8.jpg in Resources */,
+				F4CF6E3421CA65E10000393B /* sticker_circlecat.jpg in Resources */,
 				F4CB992121C3841900250297 /* video_normal@3x.png in Resources */,
-				F4CF6E3721CA65E10000393B /* 12.jpg in Resources */,
+				F4CF6E3721CA65E10000393B /* sticker_cutebaby.jpg in Resources */,
 				F4B0535C21C5584400EB8AF4 /* makeup_shanliang.png in Resources */,
 				F4CB992221C3841900250297 /* cartoon_normal@3x.png in Resources */,
 				F4ADA1B721CA31EC00A5D2EC /* cosplay_xingguangxunyicao.jpg in Resources */,
-				F4CF6E3221CA65E10000393B /* 1.png in Resources */,
+				F4CF6E3221CA65E10000393B /* sticker_newday.png in Resources */,
 				F414965021BBC4060056C6E7 /* Assets.xcassets in Resources */,
 				F4ADA18A21CA00E700A5D2EC /* Main.storyboard in Resources */,
 				F4B0536121C5584400EB8AF4 /* makeup_qingtou.png in Resources */,
 				F4CB992621C384A400250297 /* cutout_normal@3x.png in Resources */,
-				F4CF6E3F21CA65E10000393B /* 11.png in Resources */,
+				F4CF6E3F21CA65E10000393B /* sticker_comicmn.png in Resources */,
 				F4ADA1C221CA31EC00A5D2EC /* cosplay_xiaohuzi.jpg in Resources */,
 				F4ADA1BB21CA31EC00A5D2EC /* cosplay_baxituzhu.jpg in Resources */,
 				F4CB992421C384A000250297 /* makeup_normal@3x.png in Resources */,
-				F4CF6E3C21CA65E10000393B /* 5.png in Resources */,
+				F4CF6E3C21CA65E10000393B /* sticker_chickenspring.png in Resources */,
 				F4ADA1C421CA31EC00A5D2EC /* cosplay_taohua.jpg in Resources */,
-				F4CF6E3321CA65E10000393B /* 7.png in Resources */,
+				F4CF6E3321CA65E10000393B /* sticker_christmas2.png in Resources */,
 				F4ADA19821CA062100A5D2EC /* video_normal@2x.png in Resources */,
 				F4ADA19421CA062100A5D2EC /* collage_normal@2x.png in Resources */,
 				F4ADA19521CA062100A5D2EC /* datoutie_normal@2x.png in Resources */,
-				F4CF6E3E21CA65E10000393B /* 4.png in Resources */,
+				F4CF6E3E21CA65E10000393B /* sticker_enjoy.png in Resources */,
 				F4ADA1BC21CA31EC00A5D2EC /* cosplay_paopao.jpg in Resources */,
 				F4ADA1B621CA31EC00A5D2EC /* cosplay_wumeiniang.jpg in Resources */,
 				F4B0536421C5584400EB8AF4 /* makeup_babifen.png in Resources */,
-				F4CF6E3821CA65E10000393B /* 3.jpg in Resources */,
+				F4CF6E3821CA65E10000393B /* sticker_bonvoyage.jpg in Resources */,
 				F4B0536321C5584400EB8AF4 /* makeup_yinghuafen.png in Resources */,
 				F4ADA1BF21CA31EC00A5D2EC /* cosplay_meiyangyang.jpg in Resources */,
 				F4B0535D21C5584400EB8AF4 /* makeup_fennen.png in Resources */,
 				F4B0534C21C5513000EB8AF4 /* camera_box@2x.png in Resources */,
-				F4CF6E3B21CA65E10000393B /* 2.png in Resources */,
+				F4CF6E3B21CA65E10000393B /* sticker_chiqiu1.png in Resources */,
 				F4ADA1B921CA31EC00A5D2EC /* cosplay_aiji.jpg in Resources */,
-				F4CF6E3521CA65E10000393B /* 10.jpg in Resources */,
+				F4CF6E3521CA65E10000393B /* sticker_circlepig.jpg in Resources */,
 				F4ADA1B821CA31EC00A5D2EC /* cosplay_aiguo.jpg in Resources */,
 				F4B0535F21C5584400EB8AF4 /* makeup_yanhui.png in Resources */,
 				F41496A221BCADE70056C6E7 /* haoran.jpg in Resources */,
-				F4CF6E3621CA65E10000393B /* 6.png in Resources */,
+				F4CF6E3621CA65E10000393B /* sticker_christmas.png in Resources */,
 				F4A5D48121BFFD0E00734D3B /* beauty_shortcuticon.png in Resources */,
 				F4CB991E21C3841000250297 /* edit_normal@3x.png in Resources */,
 				F414969D21BBE66A0056C6E7 /* SVProgressHUD.bundle in Resources */,
@@ -617,7 +637,7 @@
 				F4B0535021C5514600EB8AF4 /* savesuc1@2x.png in Resources */,
 				F4ADA19221CA062100A5D2EC /* edit_normal@2x.png in Resources */,
 				F4B0534E21C5513F00EB8AF4 /* ae_camera@2x.png in Resources */,
-				F4CF6E3921CA65E10000393B /* 9.jpg in Resources */,
+				F4CF6E3921CA65E10000393B /* sticker_circlemouse.jpg in Resources */,
 				F4ADA1C321CA31EC00A5D2EC /* cosplay_huiguniang.jpg in Resources */,
 				F4B0535E21C5584400EB8AF4 /* makeup_fenzi.png in Resources */,
 			);
@@ -631,13 +651,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				F414968B21BBE65D0056C6E7 /* AFURLRequestSerialization.m in Sources */,
+				F44DA17F21CB7A75003F7C22 /* wipeBackgroundViewController.m in Sources */,
 				F414967621BBE4FE0056C6E7 /* BeautyViewController.m in Sources */,
 				F414968C21BBE65D0056C6E7 /* AFNetworkReachabilityManager.m in Sources */,
 				F4B052F921C5425400EB8AF4 /* JXButton.m in Sources */,
 				F41496A021BC1A1C0056C6E7 /* BeautyMakeUpViewController.m in Sources */,
 				F4B0536721C640F700EB8AF4 /* CrazyMakeUpViewController.m in Sources */,
+				F44DA17C21CB6890003F7C22 /* NSString +URL.m in Sources */,
 				F414969B21BBE66A0056C6E7 /* SVProgressHUD.m in Sources */,
 				F414968A21BBE65D0056C6E7 /* AFURLSessionManager.m in Sources */,
+				F42AB53121CE08D000F4DDE2 /* Base64Singleton.m in Sources */,
 				F4CB991A21C3686300250297 /* ToolKit.m in Sources */,
 				F4B052FC21C5425400EB8AF4 /* MLDemoItem.m in Sources */,
 				F414969C21BBE66A0056C6E7 /* SVIndefiniteAnimatedView.m in Sources */,
@@ -649,6 +672,7 @@
 				F414969921BBE66A0056C6E7 /* SVRadialGradientLayer.m in Sources */,
 				F4ADA1A521CA198700A5D2EC /* MBProgressHUD.m in Sources */,
 				F414968821BBE65D0056C6E7 /* AFURLResponseSerialization.m in Sources */,
+				F42AB52E21CD305000F4DDE2 /* FaceAssessmentViewController.m in Sources */,
 				F4B052FA21C5425400EB8AF4 /* MLPickerScrollView.m in Sources */,
 				F4B052FB21C5425400EB8AF4 /* MLPickerItem.m in Sources */,
 				F414968921BBE65D0056C6E7 /* AFHTTPSessionManager.m in Sources */,

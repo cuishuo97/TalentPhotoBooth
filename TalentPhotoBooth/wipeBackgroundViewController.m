@@ -1,33 +1,33 @@
-//  美颜
-//  BeautyViewController.m
+//
+//  wipeBackgroundViewController.m
 //  TalentPhotoBooth
 //
-//  Created by 崔硕 on 2018/12/8.
+//  Created by 崔硕 on 2018/12/20.
 //  Copyright © 2018 崔硕. All rights reserved.
 //
 
-#import "BeautyViewController.h"
+#import "wipeBackgroundViewController.h"
+#import "SVProgressHUD/SVProgressHUD.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "AFNetworking/AFNetworking.h"
-#import "SVProgressHUD/SVProgressHUD.h"
 #import "ToolKit.h"
-//#import "MBProgressHUD/MBProgressHUD.h"
+#import "Base64Singleton.h"
 
-
-
-@interface BeautyViewController ()
+@interface wipeBackgroundViewController () {
+    NSString *accessToken;
+}
 
 @end
-
-@implementation BeautyViewController
-- (IBAction)pressTest:(id)sender {
-    [self presentViewController:[shareViewController showShareVC:self.imageView.image] animated:YES completion:nil];
-}
+//24.428835fc7cc38ae1b90ca0a12b5e70a2.2592000.1548059108.282335-15236786
+@implementation wipeBackgroundViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-   
+    accessToken = @"sjhd";
+    [self getAccessToken];
+    NSLog(@"out %@", accessToken);
+    
     UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:@"请选择照片来源" preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *selectAlbum = [UIAlertAction actionWithTitle:@"从手机相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         // 判断是否可以打开相册/相机/相簿
@@ -62,18 +62,95 @@
     
     [self presentViewController:actionSheet animated:YES completion:nil];
     
+}
+- (IBAction)pressUpload:(id)sender {
+    NSData *imageData;
+    imageData = [photoCompress resetSizeOfImageData:self.imageView.image maxSize:65];
+    self.imageView.image = [UIImage imageWithData: imageData];
+    
+    NSData *data = UIImageJPEGRepresentation(self.imageView.image, 1);
+    NSString *base = [[Base64Singleton sharedManager] base64Encode:data];
+    
+    if (self.imageView.image == NULL) {
+        [SVProgressHUD showErrorWithStatus:@"请先上传照片"];
+        return;
+    }
+    
+    [ProgressHUD showLoadingMessage:@"正在合成" view:self.navigationController.view];
+    //[MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    
+    NSDictionary *dic = @{@"image":base
+                          };
+    
+    AFHTTPSessionManager *http = [AFHTTPSessionManager manager];
+    [http POST:@"https://aip.baidubce.com/rest/2.0/image-classify/v1/body_seg?access_token=24.428835fc7cc38ae1b90ca0a12b5e70a2.2592000.1548059108.282335-15236786" parameters:dic headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        //[SVProgressHUD dismiss];
+        [ProgressHUD hideHUD:self.navigationController.view];
+        [feedBackGenerator feedBack:@"SUCCESS"];
+        NSLog(@"%@",responseObject);
+        NSDictionary *dic = responseObject;
+        NSDictionary *foreground = dic[@"foreground"];
+        
+        NSString *str_result = [NSString stringWithFormat:@"%@", foreground];
+        
+        UIImage *temp = [self stringToImage:str_result];
+        self.imageView.image = temp;
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [ProgressHUD hideHUD:self.navigationController.view];
+        NSLog(@"失败");
+        NSLog(@"%@",[error localizedDescription]);
+        [SVProgressHUD showErrorWithStatus:[@"合成失败\n" stringByAppendingString:[error localizedDescription]]];
+    }];
     
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (BOOL) imageHasAlpha: (UIImage *) image
+{
+    CGImageAlphaInfo alpha = CGImageGetAlphaInfo(image.CGImage);
+    return (alpha == kCGImageAlphaFirst ||
+            alpha == kCGImageAlphaLast ||
+            alpha == kCGImageAlphaPremultipliedFirst ||
+            alpha == kCGImageAlphaPremultipliedLast);
 }
-*/
+
+// 图片转64base字符串
+- (NSString *) image2DataURL: (UIImage *) image
+{
+    NSData *imageData = nil;
+    NSString *mimeType = nil;
+    
+    if ([self imageHasAlpha: image]) {
+        imageData = UIImagePNGRepresentation(image);
+        mimeType = @"image/png";
+    } else {
+        imageData = UIImageJPEGRepresentation(image, 1.0f);
+        mimeType = @"image/jpeg";
+    }
+    
+    return [NSString stringWithFormat:@"data:%@;base64,%@", mimeType,
+            [imageData base64EncodedStringWithOptions: 0]];
+    
+}
+
+- (UIImage *)stringToImage:(NSString *)str {
+    
+    NSData * imageData =[[NSData alloc] initWithBase64EncodedString:str options:NSDataBase64DecodingIgnoreUnknownCharacters];
+    
+    UIImage *photo = [UIImage imageWithData:imageData ];
+    
+    return photo;
+    
+}
+
+- (IBAction)pressShare:(id)sender {
+    if (self.imageView.image == NULL) {
+        [SVProgressHUD showErrorWithStatus:@"请先"];
+    }
+    else {
+        [self presentViewController:[shareViewController showShareVC:self.imageView.image] animated:YES completion:nil];
+    }
+
+}
 
 // 判断设备是否有摄像头
 - (BOOL) isCameraAvailable{
@@ -146,94 +223,50 @@
     self.imageView.image = info[UIImagePickerControllerOriginalImage];
 }
 
-- (IBAction)pressUpload:(id)sender {
-    
-    if (self.imageView.image == NULL) {
-        [SVProgressHUD showErrorWithStatus:@"请先上传照片"];
-        return;
-    }
-    
-    [ProgressHUD showLoadingMessage:@"正在合成" view:self.navigationController.view];
-    //[MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-    
-    NSData *imageData;
-    imageData = [photoCompress resetSizeOfImageData:self.imageView.image maxSize:300];
-    self.imageView.image = [UIImage imageWithData: imageData];
-    
-    NSString *str_original_image = [self image2DataURL:self.imageView.image];
-    
-    NSDictionary *dic = @{@"api_key" : @"41UmWTHFupY8jw-BRJ-mxP5qCJs8c5cu",
-                          @"api_secret" : @"OF-wi5ImcMqS8W_P3wcO2q1xICkVuv2Y",
-                          @"image_base64":str_original_image,
-                          @"whitening":[NSNumber numberWithInt:[self.lblWhiteningRate.text intValue]],
-                          @"smoothing":[NSNumber numberWithInt:[self.lblSmoothingRate.text intValue]]
+
+
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+- (void)getAccessToken {
+    //static NSString *accessToken;
+    NSDictionary *dic = @{@"grant_type":@"client_credentials",
+                          @"client_id":@"GzQ2N47x2i9wkyfTP75o3FIh",
+                          @"client_secret":@"PaQyEZcxm3dsPvyzWVzDThrw4q4ePtkM"
                           };
     
-    NSLog(@"%@", dic);
-    
-    
     AFHTTPSessionManager *http = [AFHTTPSessionManager manager];
-    [http POST:@"https://api-cn.faceplusplus.com/facepp/beta/beautify" parameters:dic headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        //[SVProgressHUD dismiss];
-        [ProgressHUD hideHUD:self.navigationController.view];
-        [feedBackGenerator feedBack:@"SUCCESS"];
+    [http POST:@"https://aip.baidubce.com/oauth/2.0/token" parameters:dic headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        //NSLog(@"%@", responseObject);
         NSDictionary *dic = responseObject;
-        NSDictionary *result = dic[@"result"];
+        NSDictionary * result = dic[@"access_token"];
         
-        NSString *str_result = [NSString stringWithFormat:@"%@", result];
+        accessToken = [NSString stringWithFormat:@"%@", result];
+        NSLog(@"in %@", accessToken);
         
-        UIImage *temp = [self stringToImage:str_result];
-        self.imageView.image = temp;
+        
+
+        
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [ProgressHUD hideHUD:self.navigationController.view];
-        NSLog(@"失败");
-        NSLog(@"%@",[error localizedDescription]);
-        [SVProgressHUD showErrorWithStatus:[@"合成失败\n" stringByAppendingString:[error localizedDescription]]];
+        NSLog(@"Fail");
     }];
+    
+    //NSLog(@"outtt %@", accessToken);
+    //return self->accessToken;
+ 
 }
 
-- (BOOL) imageHasAlpha: (UIImage *) image
-{
-    CGImageAlphaInfo alpha = CGImageGetAlphaInfo(image.CGImage);
-    return (alpha == kCGImageAlphaFirst ||
-            alpha == kCGImageAlphaLast ||
-            alpha == kCGImageAlphaPremultipliedFirst ||
-            alpha == kCGImageAlphaPremultipliedLast);
-}
 
-// 图片转64base字符串
-- (NSString *) image2DataURL: (UIImage *) image
-{
-    NSData *imageData = nil;
-    NSString *mimeType = nil;
-    
-    if ([self imageHasAlpha: image]) {
-        imageData = UIImagePNGRepresentation(image);
-        mimeType = @"image/png";
-    } else {
-        imageData = UIImageJPEGRepresentation(image, 1.0f);
-        mimeType = @"image/jpeg";
-    }
-    
-    return [NSString stringWithFormat:@"data:%@;base64,%@", mimeType,
-            [imageData base64EncodedStringWithOptions: 0]];
-    
-}
 
-- (UIImage *)stringToImage:(NSString *)str {
-    
-    NSData * imageData =[[NSData alloc] initWithBase64EncodedString:str options:NSDataBase64DecodingIgnoreUnknownCharacters];
-    
-    UIImage *photo = [UIImage imageWithData:imageData ];
-    
-    return photo;
-    
-}
-- (IBAction)changedWhiteningRate:(id)sender {
-    self.lblWhiteningRate.text = [NSString stringWithFormat:@"%.0f",self.sliderWhiteningRate.value];
-}
-- (IBAction)changedSmoothingRate:(id)sender {
-    self.lblSmoothingRate.text = [NSString stringWithFormat:@"%.0f",self.sliderSmoothingRate.value];
-}
+
 
 @end

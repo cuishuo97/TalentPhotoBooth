@@ -7,14 +7,13 @@
 //
 
 #import "BeautyMakeUpViewController.h"
-#import <MobileCoreServices/MobileCoreServices.h>
 #import "AFNetworking/AFNetworking.h"
 #import "SVProgressHUD/SVProgressHUD.h"
-#import <CommonCrypto/CommonDigest.h>
 #import "ToolKit.h"
 #import "ScrollPicker/MLPickerScrollView.h"
 #import "ScrollPicker/MLDemoItem.h"
 #import "ScrollPicker/MLDemoModel.h"
+#import "Base64Singleton.h"
 
 #define kItemH 110
 #define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
@@ -36,41 +35,86 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpUI];
-    NSLog(@"哈哈哈哈哈%ld",(long)_pickerScollView.seletedIndex);
-    // Do any additional setup after loading the view.
-    //NSLog(@"%@",[self currentTimeStr]);
-    //NSLog(@"%@", [self return16LetterAndNumber]); [NSNumber numberWithInteger:2110462408]
     
-    NSDictionary *dic_ = @{@"app_id": [NSNumber numberWithInt:2110462408],
-                           @"time_stamp":[NSNumber numberWithInteger:[self currentTimeStr]],
-                           @"nonce_str":[self return16LetterAndNumber],
-                           @"cosmetic":[NSNumber numberWithInt:1],
-                           @"image":@"...",
-                           //@"sign":@""
-                          };
+    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:@"请选择照片来源" preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *selectAlbum = [UIAlertAction actionWithTitle:@"从手机相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        // 判断是否可以打开相册/相机/相簿
+        if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) [SVProgressHUD showErrorWithStatus:@"无法打开相册"];
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary; // 设置控制器类型
+        // UIImagePickerController继承UINavigationController实现UINavigationDelegate和UIImagePickerControllerDelegate
+        picker.delegate = self; // 设置代理
+        
+        [self presentViewController:picker animated:YES completion:nil];
+    }];
     
-    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:dic_];
+    UIAlertAction *selectCamera = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        // 判断是否可以打开相册/相机/相簿
+        if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) [SVProgressHUD showErrorWithStatus:@"无法打开相册"];
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera; // 设置控制器类型
+        // UIImagePickerController继承UINavigationController实现UINavigationDelegate和UIImagePickerControllerDelegate
+        picker.delegate = self; // 设置代理
+        
+        [self presentViewController:picker animated:YES completion:nil];
+    }];
     
-    NSLog(@"%@", dic);
+    UIAlertAction *selectCancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        [self.navigationController popViewControllerAnimated:YES];
+        nil;
+    }];
     
-    NSString *sign = [self getReqSign:dic];
+    [actionSheet addAction:selectAlbum];
+    [actionSheet addAction:selectCamera];
+    [actionSheet addAction:selectCancel];
+    
+    [self presentViewController:actionSheet animated:YES completion:nil];
+}
+- (IBAction)pressShare:(id)sender {
+        [self presentViewController:[shareViewController showShareVC:self.imageView.image] animated:YES completion:nil];
+}
+- (IBAction)pressUpload:(id)sender {
+    [ProgressHUD showLoadingMessage:@"正在合成" view:self.navigationController.view];
+    
+    NSData *imageData;
+    imageData = [photoCompress resetSizeOfImageData:self.imageView.image maxSize:65];
+    self.imageView.image = [UIImage imageWithData: imageData];
+
+    NSData *data = UIImageJPEGRepresentation(self.imageView.image, 1);
+    NSString *base = [[Base64Singleton sharedManager] base64Encode:data];
+    NSDictionary *_dic = @{@"app_id":[NSNumber numberWithInt:2110462408],
+                           @"time_stamp":[NSNumber numberWithInteger:[[Utility getTimeStamp] integerValue]],
+                           @"nonce_str":[Utility return32String],
+                           @"cosmetic":[self getSelectedIndex],
+                           @"image":base
+                           };
+    
+    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:_dic];
+    
+    NSString *sign = [Utility getReqSign:dic];
     
     [dic setObject:sign forKey:@"sign"];
     
-   NSLog(@"%@", dic);
-    
-    
-    //[dic setValue:sign forKey:@"app_id"];  [self image2DataURL:self.imageView.image] @"app_id":[NSNumber numberWithInteger:2110462408],
-    //dic[@"sign"] = @"HEllo";[self image2DataURL:self.imageView.image]
-    
     AFHTTPSessionManager *http = [AFHTTPSessionManager manager];
-    [http POST:@"https://api.ai.qq.com/fcgi-bin/ptu/ptu_facecosmetic" parameters:dic headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"Success");
-        NSLog(@"%@", responseObject);
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"Fail");
-    }];
+
+    [http POST:@"https://api.ai.qq.com/fcgi-bin/ptu/ptu_facecosmetic" parameters:dic
+       headers:nil
+      progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+          [ProgressHUD hideHUD:self.navigationController.view];
+          NSLog(@"response%@", responseObject);
+          NSDictionary *dic = responseObject;
+          NSDictionary *data = dic[@"data"];
+          NSDictionary *image = data[@"image"];
+          //NSLog(@"image!!!%@", image);
+          
+          NSString *image_str = [NSString stringWithFormat:@"%@", image];
+          //NSLog(@"%@", image_str);
+          self.imageView.image = [Utility stringToImage:image_str];
+          
+      } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+          NSLog(@"Fail");
+          NSLog(@"%@", [error localizedDescription]);
+      }];
 }
 
 /*
@@ -83,117 +127,80 @@
 }
 */
 
-
-//获取当前时间戳
-- (NSInteger)currentTimeStr{
-    NSDate* date = [NSDate dateWithTimeIntervalSinceNow:0];//获取当前时间0秒后的时间
-    NSTimeInterval time=[date timeIntervalSince1970]*1;// *1000 是精确到毫秒，不乘就是精确到秒
-    NSString *timeString = [NSString stringWithFormat:@"%.0f", time];
-    return [timeString intValue];
+// 判断设备是否有摄像头
+- (BOOL) isCameraAvailable{
+    return [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
 }
 
--(NSString *)return16LetterAndNumber{
-    //定义一个包含数字，大小写字母的字符串
-    NSString * strAll = @"0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    //定义一个结果
-    NSString * result = [[NSMutableString alloc]initWithCapacity:16];
-    for (int i = 0; i < 16; i++)
-    {
-        //获取随机数
-        NSInteger index = arc4random() % (strAll.length-1);
-        char tempStr = [strAll characterAtIndex:index];
-        result = (NSMutableString *)[result stringByAppendingString:[NSString stringWithFormat:@"%c",tempStr]];
+// 前面的摄像头是否可用
+- (BOOL) isFrontCameraAvailable{
+    return [UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceFront];
+}
+
+// 后面的摄像头是否可用
+- (BOOL) isRearCameraAvailable{
+    return [UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceRear];
+}
+
+
+// 判断是否支持某种多媒体类型：拍照，视频
+- (BOOL) cameraSupportsMedia:(NSString *)paramMediaType sourceType:(UIImagePickerControllerSourceType)paramSourceType{
+    __block BOOL result = NO;
+    if ([paramMediaType length] == 0){
+        NSLog(@"Media type is empty.");
+        return NO;
     }
-    
+    NSArray *availableMediaTypes =[UIImagePickerController availableMediaTypesForSourceType:paramSourceType];
+    [availableMediaTypes enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL*stop) {
+        NSString *mediaType = (NSString *)obj;
+        if ([mediaType isEqualToString:paramMediaType]){
+            result = YES;
+            *stop= YES;
+        }
+    }];
     return result;
 }
 
-- (BOOL) imageHasAlpha: (UIImage *) image
+// 检查摄像头是否支持录像
+- (BOOL) doesCameraSupportShootingVideos{
+    return [self cameraSupportsMedia:(NSString *)kUTTypeMovie sourceType:UIImagePickerControllerSourceTypeCamera];
+}
+
+// 检查摄像头是否支持拍照
+- (BOOL) doesCameraSupportTakingPhotos{
+    return [self cameraSupportsMedia:( NSString *)kUTTypeImage sourceType:UIImagePickerControllerSourceTypeCamera];
+}
+
+#pragma mark ~~~~~~~~~~ 相册文件选取相关 ~~~~~~~~~~
+// 相册是否可用
+- (BOOL) isPhotoLibraryAvailable{
+    return [UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypePhotoLibrary];
+}
+
+// 是否可以在相册中选择视频
+- (BOOL) canUserPickVideosFromPhotoLibrary{
+    return [self cameraSupportsMedia:( NSString *)kUTTypeMovie sourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+}
+
+// 是否可以在相册中选择视频
+- (BOOL) canUserPickPhotosFromPhotoLibrary{
+    return [self cameraSupportsMedia:( NSString *)kUTTypeImage sourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+}
+
+#pragma mark -- <UIImagePickerControllerDelegate>--
+// 获取图片后的操作
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
-    CGImageAlphaInfo alpha = CGImageGetAlphaInfo(image.CGImage);
-    return (alpha == kCGImageAlphaFirst ||
-            alpha == kCGImageAlphaLast ||
-            alpha == kCGImageAlphaPremultipliedFirst ||
-            alpha == kCGImageAlphaPremultipliedLast);
+    // 销毁控制器
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    // 设置图片
+    self.imageView.image = info[UIImagePickerControllerOriginalImage];
 }
 
-// 图片转64base字符串
-- (NSString *) image2DataURL: (UIImage *) image
-{
-    NSData *imageData = nil;
-    NSString *mimeType = nil;
-    
-    if ([self imageHasAlpha: image]) {
-        imageData = UIImagePNGRepresentation(image);
-        mimeType = @"image/png";
-    } else {
-        imageData = UIImageJPEGRepresentation(image, 1.0f);
-        mimeType = @"image/jpeg";
-    }
-    
-    return [NSString stringWithFormat:@"data:%@;base64,%@", mimeType,
-            [imageData base64EncodedStringWithOptions: 0]];
-    
+-(NSNumber *) getSelectedIndex {
+    return [NSNumber numberWithInteger:(long)_pickerScollView.seletedIndex+1];
 }
-
-- (UIImage *)stringToImage:(NSString *)str {
-    
-    NSData * imageData =[[NSData alloc] initWithBase64EncodedString:str options:NSDataBase64DecodingIgnoreUnknownCharacters];
-    
-    UIImage *photo = [UIImage imageWithData:imageData ];
-    
-    return photo;
-    
-}
-
--(NSString *)getReqSign:(NSMutableDictionary *)dic {
-    NSString *app_key = @"&app_key=JQLepkbvA5IlFfxA";
-    
-    NSArray *keyArray = [dic allKeys];
-    
-    NSArray *sortArray = [keyArray sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
-        return [obj1 compare:obj2 options:NSNumericSearch];
-    }];
-    
-    NSMutableArray *valueArray = [NSMutableArray array];
-    for (NSString *sortString in sortArray) {
-        [valueArray addObject:[dic objectForKey:sortString]];
-    }
-    
-     NSMutableArray *signArray = [NSMutableArray array];
-    for (int i = 0; i<sortArray.count; i++) {
-        NSString *keyValueStr = [NSString stringWithFormat:@"%@=%@",sortArray[i],valueArray[i]];
-        [signArray addObject:keyValueStr];
-    }
-    
-    NSString *sign = [signArray componentsJoinedByString:@"&"];
-    
-    sign = [sign stringByAppendingString:app_key];
-    
-    sign = [self md5:sign];
-    
-    sign = [sign uppercaseStringWithLocale:[NSLocale currentLocale]];
-    
-    NSLog(@"%@", sign);
-    
-    return sign;
-    
-}
-
-
-- (NSString *)md5:(NSString *)str
-{
-    const char *cStr = [str UTF8String];
-    unsigned char result[16];
-    CC_MD5(cStr, strlen(cStr), result); // This is the md5 call
-    return [NSString stringWithFormat:@"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x",
-            result[0], result[1], result[2], result[3],
-            result[4], result[5], result[6], result[7],
-            result[8], result[9], result[10], result[11],
-            result[12], result[13], result[14], result[15]
-            ];
-}
-
 
 #pragma mark - UI
 - (void)setUpUI
@@ -211,7 +218,7 @@
     }
     
     // 2.初始化
-    _pickerScollView = [[MLPickerScrollView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 120, SCREEN_WIDTH, kItemH)];
+    _pickerScollView = [[MLPickerScrollView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 130, SCREEN_WIDTH, kItemH)];
     //_pickerScollView.backgroundColor = [UIColor lightGrayColor];
     _pickerScollView.itemWidth = _pickerScollView.frame.size.width / 5; //刚好显示5个的宽度
     _pickerScollView.itemHeight = kItemH;
@@ -238,36 +245,6 @@
     _pickerScollView.seletedIndex = number;
     [_pickerScollView scollToSelectdIndex:number];
     
-}
-
-- (void)setUpSureButton
-{
-    sureButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    sureButton.frame = CGRectMake(15, SCREEN_HEIGHT - 200, SCREEN_WIDTH - 30, 44);
-    sureButton.backgroundColor = kRGB236;
-    sureButton.layer.cornerRadius = 22;
-    sureButton.layer.masksToBounds = YES;
-    [sureButton setTitle:@"确定" forState:UIControlStateNormal];
-    [sureButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [sureButton addTarget:self action:@selector(clickSure) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:sureButton];
-}
-
-#pragma mark - Action
-- (void)clickSure
-{
-    NSLog(@"确定--选择折扣Index为%ld",(long)_pickerScollView.seletedIndex);
-    
-    NSString *title;
-    for (int i = 0; i < data.count; i++) {
-        MLDemoModel *model = [data objectAtIndex:i];
-        if (model.dicountIndex == _pickerScollView.seletedIndex) {
-            title = model.dicountTitle;
-        }
-    }
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:nil delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
-    [alert show];
 }
 
 #pragma mark - dataSource
@@ -315,4 +292,6 @@
 }
 
 
+
 @end
+

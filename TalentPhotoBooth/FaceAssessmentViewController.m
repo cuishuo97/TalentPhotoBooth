@@ -1,33 +1,27 @@
-//  美颜
-//  BeautyViewController.m
+//
+//  FaceAssessmentViewController.m
 //  TalentPhotoBooth
 //
-//  Created by 崔硕 on 2018/12/8.
+//  Created by 崔硕 on 2018/12/21.
 //  Copyright © 2018 崔硕. All rights reserved.
 //
 
-#import "BeautyViewController.h"
-#import <MobileCoreServices/MobileCoreServices.h>
+#import "FaceAssessmentViewController.h"
 #import "AFNetworking/AFNetworking.h"
-#import "SVProgressHUD/SVProgressHUD.h"
 #import "ToolKit.h"
-//#import "MBProgressHUD/MBProgressHUD.h"
+#import "SVProgressHUD/SVProgressHUD.h"
+#import "Base64Singleton.h"
 
-
-
-@interface BeautyViewController ()
+@interface FaceAssessmentViewController ()
 
 @end
 
-@implementation BeautyViewController
-- (IBAction)pressTest:(id)sender {
-    [self presentViewController:[shareViewController showShareVC:self.imageView.image] animated:YES completion:nil];
-}
+@implementation FaceAssessmentViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-   
+    
     UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:@"请选择照片来源" preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *selectAlbum = [UIAlertAction actionWithTitle:@"从手机相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         // 判断是否可以打开相册/相机/相簿
@@ -62,7 +56,52 @@
     
     [self presentViewController:actionSheet animated:YES completion:nil];
     
+}
+- (IBAction)pressUpload:(id)sender {
+    [ProgressHUD showLoadingMessage:@"正在合成" view:self.navigationController.view];
+    NSData *imageData;
+    imageData = [photoCompress resetSizeOfImageData:self.imageView.image maxSize:65];
+    self.imageView.image = [UIImage imageWithData: imageData];
     
+    NSData *data = UIImageJPEGRepresentation(self.imageView.image, 1);
+    NSString *base = [[Base64Singleton sharedManager] base64Encode:data];
+    NSDictionary *_dic = @{@"app_id":[NSNumber numberWithInt:2110462408],
+                           @"time_stamp":[NSNumber numberWithInteger:[[Utility getTimeStamp] integerValue]],
+                           @"nonce_str":[Utility return32String],
+                           @"image":base
+                           };
+    
+    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:_dic];
+    
+    NSString *sign = [Utility getReqSign:dic];
+    
+    [dic setObject:sign forKey:@"sign"];
+    
+    AFHTTPSessionManager *http = [AFHTTPSessionManager manager];
+    NSDictionary *header = @{@"Content-Type":@"application/x-www-form-urlencoded"}; //是否需要加入请求头？
+    [http POST:@"https://api.ai.qq.com/fcgi-bin/ptu/ptu_faceage" parameters:dic
+       headers:nil
+      progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+          [ProgressHUD hideHUD:self.navigationController.view];
+          NSLog(@"response%@", responseObject);
+          NSDictionary *dic = responseObject;
+          NSDictionary *data = dic[@"data"];
+          NSDictionary *image = data[@"image"];
+          //NSLog(@"image!!!%@", image);
+          
+          NSString *image_str = [NSString stringWithFormat:@"%@", image];
+          //NSLog(@"%@", image_str);
+          self.imageView.image = [Utility stringToImage:image_str];
+          
+          
+      } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+          NSLog(@"Fail");
+          NSLog(@"%@", [error localizedDescription]);
+      }];
+}
+
+- (IBAction)pressShare:(id)sender {
+                [self presentViewController:[shareViewController showShareVC:self.imageView.image] animated:YES completion:nil];
 }
 
 /*
@@ -146,94 +185,5 @@
     self.imageView.image = info[UIImagePickerControllerOriginalImage];
 }
 
-- (IBAction)pressUpload:(id)sender {
-    
-    if (self.imageView.image == NULL) {
-        [SVProgressHUD showErrorWithStatus:@"请先上传照片"];
-        return;
-    }
-    
-    [ProgressHUD showLoadingMessage:@"正在合成" view:self.navigationController.view];
-    //[MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-    
-    NSData *imageData;
-    imageData = [photoCompress resetSizeOfImageData:self.imageView.image maxSize:300];
-    self.imageView.image = [UIImage imageWithData: imageData];
-    
-    NSString *str_original_image = [self image2DataURL:self.imageView.image];
-    
-    NSDictionary *dic = @{@"api_key" : @"41UmWTHFupY8jw-BRJ-mxP5qCJs8c5cu",
-                          @"api_secret" : @"OF-wi5ImcMqS8W_P3wcO2q1xICkVuv2Y",
-                          @"image_base64":str_original_image,
-                          @"whitening":[NSNumber numberWithInt:[self.lblWhiteningRate.text intValue]],
-                          @"smoothing":[NSNumber numberWithInt:[self.lblSmoothingRate.text intValue]]
-                          };
-    
-    NSLog(@"%@", dic);
-    
-    
-    AFHTTPSessionManager *http = [AFHTTPSessionManager manager];
-    [http POST:@"https://api-cn.faceplusplus.com/facepp/beta/beautify" parameters:dic headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        //[SVProgressHUD dismiss];
-        [ProgressHUD hideHUD:self.navigationController.view];
-        [feedBackGenerator feedBack:@"SUCCESS"];
-        NSDictionary *dic = responseObject;
-        NSDictionary *result = dic[@"result"];
-        
-        NSString *str_result = [NSString stringWithFormat:@"%@", result];
-        
-        UIImage *temp = [self stringToImage:str_result];
-        self.imageView.image = temp;
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [ProgressHUD hideHUD:self.navigationController.view];
-        NSLog(@"失败");
-        NSLog(@"%@",[error localizedDescription]);
-        [SVProgressHUD showErrorWithStatus:[@"合成失败\n" stringByAppendingString:[error localizedDescription]]];
-    }];
-}
-
-- (BOOL) imageHasAlpha: (UIImage *) image
-{
-    CGImageAlphaInfo alpha = CGImageGetAlphaInfo(image.CGImage);
-    return (alpha == kCGImageAlphaFirst ||
-            alpha == kCGImageAlphaLast ||
-            alpha == kCGImageAlphaPremultipliedFirst ||
-            alpha == kCGImageAlphaPremultipliedLast);
-}
-
-// 图片转64base字符串
-- (NSString *) image2DataURL: (UIImage *) image
-{
-    NSData *imageData = nil;
-    NSString *mimeType = nil;
-    
-    if ([self imageHasAlpha: image]) {
-        imageData = UIImagePNGRepresentation(image);
-        mimeType = @"image/png";
-    } else {
-        imageData = UIImageJPEGRepresentation(image, 1.0f);
-        mimeType = @"image/jpeg";
-    }
-    
-    return [NSString stringWithFormat:@"data:%@;base64,%@", mimeType,
-            [imageData base64EncodedStringWithOptions: 0]];
-    
-}
-
-- (UIImage *)stringToImage:(NSString *)str {
-    
-    NSData * imageData =[[NSData alloc] initWithBase64EncodedString:str options:NSDataBase64DecodingIgnoreUnknownCharacters];
-    
-    UIImage *photo = [UIImage imageWithData:imageData ];
-    
-    return photo;
-    
-}
-- (IBAction)changedWhiteningRate:(id)sender {
-    self.lblWhiteningRate.text = [NSString stringWithFormat:@"%.0f",self.sliderWhiteningRate.value];
-}
-- (IBAction)changedSmoothingRate:(id)sender {
-    self.lblSmoothingRate.text = [NSString stringWithFormat:@"%.0f",self.sliderSmoothingRate.value];
-}
 
 @end

@@ -43,7 +43,19 @@
 
 + (void) hideHUD: (UIView *) view;
 
+@end
 
+@interface Utility : NSObject
+
++ (nullable NSString *) md5 :(nullable NSString *) md5;
+
++ (NSString *) getReqSign :(NSDictionary *) dic;
+
++ (NSString *) getTimeStamp;
+
++ (NSString *) return32String;
+
++ (UIImage *) stringToImage :(NSString *) str;
 
 
 

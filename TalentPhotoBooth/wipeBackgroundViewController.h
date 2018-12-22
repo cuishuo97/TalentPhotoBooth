@@ -1,8 +1,8 @@
-//  美妆
-//  CrazyMakeUpViewController.h
+//
+//  wipeBackgroundViewController.h
 //  TalentPhotoBooth
 //
-//  Created by 崔硕 on 2018/12/16.
+//  Created by 崔硕 on 2018/12/20.
 //  Copyright © 2018 崔硕. All rights reserved.
 //
 
@@ -10,9 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CrazyMakeUpViewController : UIViewController
-
-@property (nonatomic,assign)NSInteger discount;
+@interface wipeBackgroundViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end

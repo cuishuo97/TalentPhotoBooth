@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PhotoStickerViewController : UIViewController
 @property (nonatomic,assign)NSInteger discount;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
 

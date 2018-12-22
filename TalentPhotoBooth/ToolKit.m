@@ -9,6 +9,8 @@
 //#import <Foundation/Foundation.h>
 #import "ToolKit.h"
 #import "MBProgressHUD/MBProgressHUD.h"
+#import "NSString +URL.h"
+#import <CommonCrypto/CommonDigest.h>
 
 //Taptic Engine 触感反馈封装
 @implementation feedBackGenerator
@@ -201,6 +203,89 @@
 
 + (void) hideHUD: (UIView *) view{
     [MBProgressHUD hideHUDForView:view animated:YES];
+}
+
+@end
+
+@implementation Utility
+
++ (nullable NSString *) md5 :(nullable NSString *) str {
+    if (!str) return nil;
+
+    const char *cStr = str.UTF8String;
+    unsigned char result[CC_MD5_DIGEST_LENGTH];
+    CC_MD5(cStr, (CC_LONG)strlen(cStr), result);
+    
+    NSMutableString *md5Str = [NSMutableString string];
+    for (int i = 0; i < CC_MD5_DIGEST_LENGTH; ++i) {
+        [md5Str appendFormat:@"%02x", result[i]];
+    }
+    return md5Str;
+}
+
++ (NSString *) getReqSign :(NSMutableDictionary *) dic {
+    NSString *app_key = @"&app_key=JQLepkbvA5IlFfxA";
+    NSArray *keyArray = [dic allKeys];
+    
+    NSArray *sortArray = [keyArray sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        return [obj1 compare:obj2];
+    }];
+    
+    NSMutableArray *valueArray = [NSMutableArray array];
+    
+    for (NSString *key in sortArray) {
+        [valueArray addObject:[dic objectForKey:key]];
+    }
+    
+    NSMutableArray *value = [NSMutableArray array];
+    NSString *s;
+    
+    for (int i=0; i<valueArray.count; i++) {
+        s = [NSString stringWithFormat:@"%@", valueArray[i]];
+        s = [s URLEncodedString];
+        [value addObject: s];
+    }
+    
+    NSMutableArray *signArray = [NSMutableArray array];
+    for (int i = 0; i<sortArray.count; i++) {
+        NSString *keyValueStr = [NSString stringWithFormat:@"%@=%@",sortArray[i],value[i]];
+        [signArray addObject:keyValueStr];
+    }
+    
+    NSString *sign = [signArray componentsJoinedByString:@"&"];
+    
+    sign = [sign stringByAppendingString:app_key];
+    NSLog(@"%@",sign);
+    
+    sign = [self md5:sign];
+    
+    sign = [sign uppercaseString];
+    
+    return sign;
+}
+
++ (NSString *) getTimeStamp {
+    NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
+    NSTimeInterval a=[dat timeIntervalSince1970];
+    NSString*timeString = [NSString stringWithFormat:@"%0.f", a];//转为字符型
+    return timeString;
+}
+
++ (NSString *) return32String {
+    char data[32];
+    
+    for (int x=0;x<32;data[x++] = (char)('A'+ (arc4random_uniform(26))));
+    
+    return [[NSString alloc] initWithBytes:data length:32 encoding:NSUTF8StringEncoding];
+}
+
++ (UIImage *) stringToImage :(NSString *) str {
+    NSData * imageData =[[NSData alloc] initWithBase64EncodedString:str options:NSDataBase64DecodingIgnoreUnknownCharacters];
+    
+    UIImage *photo = [UIImage imageWithData:imageData ];
+    
+    return photo;
+    
 }
 
 @end
